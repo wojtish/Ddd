@@ -7,10 +7,8 @@ var entries = lib().entries();
 const arr = ["Present", "Absent", "Sick", "Field", "Night Duty"];
 
 //showDialog(entries);
-
 //function showDialog(entries) {
 //var e = entries.shift();
-
 //var name = e.field('Name');
 
 var myCBox = ui().choiceBox(0, arr);
@@ -20,10 +18,7 @@ var myDialog = dialog();
 myDialog.title("name")
     //.view(myCBox)
      // .view(hhh)
-
     //.show();
-   
-
 //dialog()
 
 .view(
@@ -34,12 +29,10 @@ ui().text('This is a text label'),
 
 ui().button('zadania terminarz').action(function() { libByName("zadania terminarz zajęć prac zadań zadania").show() }),
 
-
 ui().image('https://zwierzakinadpotokiem.pl/wp-content/uploads/2024/02/Mloda-bogatka-1024x815.jpg').width(300).height(200)
 ])
 )
 
 .show()
-
 
 //ui().button('Button').width(100).height(50).tag('button1');
