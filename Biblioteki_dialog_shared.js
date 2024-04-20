@@ -28,6 +28,7 @@ ui().text('Hello').font({ size: 20, color: 'red', style: 'bold' }),
 ui().text('This is a text label'),
 
 ui().button('zadania terminarz').action(function() { libByName("zadania terminarz zajęć prac zadań zadania").show() }),
+ui().button('Biblia').action(function() { libByName("Biblia Audio memento").show() }),
 
 ui().image('https://zwierzakinadpotokiem.pl/wp-content/uploads/2024/02/Mloda-bogatka-1024x815.jpg').width(300).height(200)
 ])
