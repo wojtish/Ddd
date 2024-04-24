@@ -70,7 +70,12 @@ libByName(search1[0].field("nazwa")).show()
 
 //lib().create({ 'nazwa': ui().findByTag('name').text })
         return true; 
-    }).width(779).height(300)
+    }).width(779).height(300),
+
+ui().button('zablokuj').action(function() {var url = ("tasker://secondary?text=zablokujekran");
+var i = intent("android.intent.action.VIEW"); i.data(url);
+i.send();}).width(777),
+
 ])
 )
 .show()
