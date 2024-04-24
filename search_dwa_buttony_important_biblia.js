@@ -3,9 +3,12 @@ dialog()
 .view(
 
 ui().layout([
+ui().layout([
+ui().button('in').action(function() {libByName("inside").show()}).width(200),
+ui().button('im').action(function() {libByName("important").show()}).width(200),
+ui().button('mem').action(function() {libByName("memento open").show()}).width(200),
 
-ui().button('i').action(function() {libByName("inside").show()}).width(200),
-
+]).horizontal (),
 
 ui().button('szukaj w biblii').action(function() { 
         
