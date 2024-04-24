@@ -7,6 +7,7 @@ ui().layout([
 ui().button('in').action(function() {libByName("inside").show()}).width(200),
 ui().button('im').action(function() {libByName("important").show()}).width(200),
 ui().button('mem').action(function() {libByName("memento open").show()}).width(200),
+ui().button('lib').action(function() {lib().show()}).width(190),
 
 ]).horizontal (),
 
