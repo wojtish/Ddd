@@ -9,7 +9,7 @@ ui().button('im').action(function() {libByName("important").show()}).width(200),
 ui().button('mem').action(function() {libByName("memento open").show()}).width(200),
 ui().button('lib').action(function() {lib().show()}).width(190),
 
-]).horizontal (),
+]).horizontal(),
 
 ui().button('szukaj w biblii').action(function() { 
         
@@ -38,7 +38,33 @@ search1[0].show()
 
     ui().edit('').tag('name'), 
 
-    ui().button('szukaj').action(function() { 
+
+
+ui().layout([
+ui().button('in').action(function() {libByName("inside").show()}).width(200),
+
+ui().button('im').action(function() {libByName("important").show()}).width(200),
+
+ui().button('mem').action(function() {libByName("memento open").show()}).width(200),
+
+ui().button('ins').action(function() {
+function getRandomInteger(max) {
+    return Math.floor(Math.random() * max);
+}
+
+let entries = lib().entries();
+let numberOfEntries = entries.length;
+let selection =
+    getRandomInteger(numberOfEntries);
+let e = entries[selection];
+// Put code to show this entry here
+
+e.show()
+}).width(190),
+
+]).horizontal(),
+
+ui().button('szukaj').action(function() { 
         
 
 var lib1 = libByName("important");
@@ -71,6 +97,7 @@ libByName(search1[0].field("nazwa")).show()
 //lib().create({ 'nazwa': ui().findByTag('name').text })
         return true; 
     }).width(779).height(300),
+
 
 ui().button('zablokuj').action(function() {var url = ("tasker://secondary?text=zablokujekran");
 var i = intent("android.intent.action.VIEW"); i.data(url);
