@@ -41,7 +41,11 @@ search1[0].show()
 
 
 ui().layout([
-ui().button('in').action(function() {libByName("inside").show()}).width(200),
+ui().button('jas').action(function() {
+var url = ("tasker://secondary?text=jasnyciemnymotyw");
+var i = intent("android.intent.action.VIEW"); i.data(url);
+i.send();
+}).width(200),
 
 ui().button('im').action(function() {libByName("important").show()}).width(200),
 
@@ -63,6 +67,11 @@ e.show()
 }).width(190),
 
 ]).horizontal(),
+
+ui().button('zablokuj').action(function() {var url = ("tasker://secondary?text=zablokujekran");
+var i = intent("android.intent.action.VIEW"); i.data(url);
+i.send();}).width(777),
+
 
 ui().button('szukaj').action(function() { 
         
@@ -99,9 +108,7 @@ libByName(search1[0].field("nazwa")).show()
     }).width(779).height(300),
 
 
-ui().button('zablokuj').action(function() {var url = ("tasker://secondary?text=zablokujekran");
-var i = intent("android.intent.action.VIEW"); i.data(url);
-i.send();}).width(777),
+
 
 ])
 )
