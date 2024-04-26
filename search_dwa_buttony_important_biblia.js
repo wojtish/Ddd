@@ -47,7 +47,25 @@ var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send();
 }).width(200),
 
-ui().button('im').action(function() {libByName("important").show()}).width(200),
+ui().button('mo').action(function() {
+
+
+var min = Math.ceil(10000)
+var max = Math.floor(1000)
+
+for (var ent = 0; ent < lib().entries().length; ent++){    
+
+var ggg = Math.floor(Math.random() * (max - min)) + min
+var jjj = ggg / 100
+var kkk = jjj.toFixed(2)
+
+lib().entries()[ent].set("czas momentum",kkk)
+
+}
+
+
+
+}).width(200),
 
 ui().button('mem').action(function() {libByName("memento open").show()}).width(200),
 
