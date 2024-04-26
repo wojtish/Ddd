@@ -67,7 +67,32 @@ lib().entries()[ent].set("czas momentum",kkk)
 
 }).width(200),
 
-ui().button('mem').action(function() {libByName("memento open").show()}).width(200),
+ui().button('zap').action(function() {
+
+
+var note = ui().findByTag('name').text;
+
+libByName("dziennik").entries()[0].set("zajawka",note);
+
+
+libByName("dziennik").entries()[0].set("notatki",libByName("dziennik").entries()[0].field("notatki")+"\n\n"+note+"\n");
+
+note = ""
+message("saved")
+return true;
+
+
+}
+
+
+
+).width(200),
+
+
+
+
+
+
 
 ui().button('ins').action(function() {
 function getRandomInteger(max) {
