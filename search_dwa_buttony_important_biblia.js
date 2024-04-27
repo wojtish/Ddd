@@ -87,8 +87,14 @@ e.show()
 
 ui().layout([
 ui().button('podp.').action(function() { 
-entry().images("zdjęcie")[0].caption = ui().findByTag('name').text
-message(entry().images("zdjęcie")[0].caption)
+
+var nr = ui().findByTag('name2').text
+if (nr == ""){
+nr = 0}
+entry().images("zdjęcie")[nr].caption = ui().findByTag('name').text
+        
+message(entry().images("zdjęcie")[nr].caption)
+
 entry().show()
         return true; 
     }).width(200),
