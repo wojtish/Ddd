@@ -12,7 +12,7 @@ ui().button('lib').action(function() {lib().show()}).width(190)
 ]).horizontal(),
 
 ui().layout([
-ui().button('szukaj dz.').action(function() { 
+ui().button('szu. dz.').action(function() { 
 //var libs = libByName("important").entries()
 //var names = libs.field("nazwa")
 var nr = ui().findByTag('name2').text
@@ -24,16 +24,23 @@ var search1 = libByName("dziennik").find(ui().findByTag('name').text)
 message(search1.length);
 search1[nr].show()
         return true; 
-    }).width(300),
+    }).width(250),
 
-ui().button('szukaj w biblii').action(function() {       
+
+ui().button('zer.').action(function() {
+ui().findByTag('name').text = ""
+}).width(190),
+
+
+
+ui().button('szu biblia').action(function() {       
 var lib1 = libByName("Biblia audio memento");
 var search1 = lib1.find(ui().findByTag('name').text)
 var tyu = search1[0].field("nazwa")
 message(search1.length);
 search1[nr].show()
         return true; 
-    }).width(430),
+    }).width(280),
 ui().edit('').tag('name2').width(50), 
 ]).horizontal(),
 
