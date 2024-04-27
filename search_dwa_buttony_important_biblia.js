@@ -1,40 +1,46 @@
 dialog()
-
 .view(
-
 ui().layout([
+
 ui().layout([
 ui().button('in').action(function() {libByName("inside").show()}).width(200),
 ui().button('im').action(function() {libByName("important").show()}).width(200),
 ui().button('mem').action(function() {libByName("memento open").show()}).width(200),
 ui().button('lib').action(function() {lib().show()}).width(190),
-
 ]).horizontal(),
+
+
+ui().layout([
+ui().button('szukaj dz.').action(function() { 
+
+
+var libs = libByName("important").entries()
+
+//var names = libs.field("nazwa")
+
+
+var search1 = libByName("dziennik").find(ui().findByTag('name').text) 
+//for (i = 0; i < libs.length; i++) {
+//var search1 =libByName(libs[i].field("nazwa")).find(ui().findByTag('name').text) }
+
+message(search1.length);
+search1[0].show()
+        return true; 
+    }).width(395),
 
 ui().button('szukaj w biblii').action(function() { 
         
-
 var lib1 = libByName("Biblia audio memento");
-//lib1.show();
-//message(lib1.entries().length);
-//var zguba = arg("fjgg")
 var search1 = lib1.find(ui().findByTag('name').text)
 
 var tyu = search1[0].field("nazwa")
-
-
 message(search1.length);
-//message(search1[0].field("całość rozdziału"));
-//entry().set("notatki",search1[0].field("całość rozdziału"))
-
-//search1[0].show()
-
 search1[0].show()
-
-
-//lib().create({ 'nazwa': ui().findByTag('name').text })
         return true; 
-    }).width(779),
+    }).width(395),
+]).horizontal(),
+
+
 
     ui().edit('').tag('name'), 
 
@@ -68,29 +74,15 @@ lib().entries()[ent].set("czas momentum",kkk)
 }).width(200),
 
 ui().button('zap').action(function() {
-
-
 var note = ui().findByTag('name').text;
-
 libByName("dziennik").entries()[0].set("zajawka",note);
-
-
 libByName("dziennik").entries()[0].set("notatki",libByName("dziennik").entries()[0].field("notatki")+"\n\n"+note+"\n");
 
 note = ""
 message("saved")
 return true;
-
-
 }
-
-
-
 ).width(200),
-
-
-
-
 
 
 
@@ -98,7 +90,6 @@ ui().button('ins').action(function() {
 function getRandomInteger(max) {
     return Math.floor(Math.random() * max);
 }
-
 let entries = lib().entries();
 let numberOfEntries = entries.length;
 let selection =
@@ -116,42 +107,18 @@ var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send();}).width(777),
 
 
-ui().button('szukaj').action(function() { 
-        
+ui().button('szukaj w im').action(function() { 
 
 var lib1 = libByName("important");
-//lib1.show();
-//message(lib1.entries().length);
-//var zguba = arg("fjgg")
-
-
-//var zbiór = for (var  ent = 0; ent >  lib1.entries().length; ent++){lib1.entries()[ent].field("tekst do wyszukiwania") }
-
 
 var search1 = lib1.find(ui().findByTag('name').text)
 
-//var search55 = zbiór.find(ui().findByTag('name').text)
-
-//var tyu = search1[0].field("nazwa")
-
 message(search1.length);
-//message(search1[0].field("całość rozdziału"));
-//entry().set("notatki",search1[0].field("całość rozdziału"))
 
-//search1[0].show()
-//function findAll(str,find) {
-  //return str.find(new RegExp(find, 'g'); }
-//let filter = search1.filter(item => item.field('nazwa') != "ludzie w miłości kontaktujący się");
 libByName(search1[0].field("nazwa")).show()
-//libByName(filter[0].field("nazwa")).show()
 
-
-//lib().create({ 'nazwa': ui().findByTag('name').text })
         return true; 
     }).width(779).height(300),
-
-
-
 
 ])
 )
@@ -160,3 +127,4 @@ libByName(search1[0].field("nazwa")).show()
 
 
 
+        
