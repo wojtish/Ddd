@@ -100,9 +100,9 @@ if (calp == ""){
 
 entry().images("zdjęcie")[nr].caption = ui().findByTag('name').text
 message(entry().images("zdjęcie")[nr].caption)
-//if (nr == ""){
+if (nr == ""){
 entry().show()
-//}
+}
 
 }
 else if (calp == "t" ){
