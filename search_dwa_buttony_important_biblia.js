@@ -8,8 +8,9 @@ ui().layout([
 ui().button('in').action(function() {libByName("inside").show()}).width(200),
 ui().button('im').action(function() {libByName("important").show()}).width(150),
 ui().button('mem').action(function() {libByName("memento open").show()}).width(170),
-ui().button('lib').action(function() {lib().show()}).width(190),
-ui().edit('').tag('name2').width(50), 
+ui().button('lib').action(function() {lib().show()}).width(190)
+
+
 
 ]).horizontal(),
 
@@ -37,7 +38,7 @@ message(search1.length);
 
 search1[nr].show()
         return true; 
-    }).width(395),
+    }).width(250),
 
 
 ui().button('szukaj w biblii').action(function() { 
@@ -49,7 +50,10 @@ var tyu = search1[0].field("nazwa")
 message(search1.length);
 search1[nr].show()
         return true; 
-    }).width(395),
+    }).width(340),
+
+ui().edit('').tag('name2').width(50), 
+
 ]).horizontal(),
 
 
@@ -148,4 +152,4 @@ libByName(search1[nr].field("nazwa")).show()
 
 
 
-                          
+        
