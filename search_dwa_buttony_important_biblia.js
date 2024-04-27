@@ -86,22 +86,40 @@ e.show()
 ]).horizontal(),
 
 ui().layout([
+ui().edit('').tag('name3').width(50),
+
 ui().button('podp.').action(function() { 
 
 var nr = ui().findByTag('name2').text
 if (nr == ""){
 nr = 0}
+
+var calp = ui().findByTag('name3').text
+
+if (calp == ""){
+
 entry().images("zdjęcie")[nr].caption = ui().findByTag('name').text
-        
 message(entry().images("zdjęcie")[nr].caption)
 
 entry().show()
+
+
+}
+else if (calp == "t" ){
+
+ui().findByTag('name').text = entry().images("zdjęcie")[nr].caption
+
+//entry().images("zdjęcie")[nr].caption = entry().images("zdjęcie")[nr].caption + ui().findByTag('name').text
+}       
+//message(entry().images("zdjęcie")[nr].caption)
+
+//entry().show()
         return true; 
     }).width(200),
 
 ui().button('zablokuj').action(function() {var url = ("tasker://secondary?text=zablokujekran");
 var i = intent("android.intent.action.VIEW"); i.data(url);
-i.send();}).width(585),
+i.send();}).width(535),
 
 ]).horizontal(),
 
