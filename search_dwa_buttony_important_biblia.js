@@ -124,9 +124,20 @@ ui().findByTag('name').text = entry().images("zdjęcie")[nr].caption
         return true; 
     }).width(200),
 
+
+
+ui().button('show').action(function() {
+
+entry().show()
+
+
+}).width(200),
+
+
+
 ui().button('zablokuj').action(function() {var url = ("tasker://secondary?text=zablokujekran");
 var i = intent("android.intent.action.VIEW"); i.data(url);
-i.send();}).width(535),
+i.send();}).width(340),
 
 ]).horizontal(),
 
