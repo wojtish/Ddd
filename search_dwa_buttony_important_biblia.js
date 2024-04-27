@@ -4,10 +4,13 @@ dialog()
 ui().layout([
 
 ui().layout([
+
 ui().button('in').action(function() {libByName("inside").show()}).width(200),
-ui().button('im').action(function() {libByName("important").show()}).width(200),
-ui().button('mem').action(function() {libByName("memento open").show()}).width(200),
+ui().button('im').action(function() {libByName("important").show()}).width(150),
+ui().button('mem').action(function() {libByName("memento open").show()}).width(170),
 ui().button('lib').action(function() {lib().show()}).width(190),
+ui().edit('').tag('name2').width(50), 
+
 ]).horizontal(),
 
 
@@ -18,6 +21,9 @@ ui().button('szukaj dz.').action(function() {
 //var libs = libByName("important").entries()
 //var names = libs.field("nazwa")
 var nr = ui().findByTag('name2').text
+if (nr == ""){
+nr = 0}
+
 
 var search1 = libByName("dziennik").find(ui().findByTag('name').text) 
 //for (i = 0; i < libs.length; i++) {
@@ -51,7 +57,6 @@ search1[nr].show()
 
 ui().layout([
 
-ui().edit('0').tag('name2').width(100), 
 
 ui().edit('').tag('name')
 
@@ -122,6 +127,8 @@ i.send();}).width(777),
 
 ui().button('szukaj w im').action(function() { 
 var nr = ui().findByTag('name2').text
+if (nr == ""){
+nr = 0}
 
 var lib1 = libByName("important");
 
@@ -141,4 +148,4 @@ libByName(search1[nr].field("nazwa")).show()
 
 
 
-        
+                          
