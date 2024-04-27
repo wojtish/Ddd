@@ -1,3 +1,4 @@
+
 dialog()
 .view(
 ui().layout([
@@ -14,19 +15,24 @@ ui().layout([
 ui().button('szukaj dz.').action(function() { 
 
 
-var libs = libByName("important").entries()
-
+//var libs = libByName("important").entries()
 //var names = libs.field("nazwa")
-
+var nr = ui().findByTag('name2').text
 
 var search1 = libByName("dziennik").find(ui().findByTag('name').text) 
 //for (i = 0; i < libs.length; i++) {
 //var search1 =libByName(libs[i].field("nazwa")).find(ui().findByTag('name').text) }
 
 message(search1.length);
-search1[0].show()
+
+
+
+
+
+search1[nr].show()
         return true; 
     }).width(395),
+
 
 ui().button('szukaj w biblii').action(function() { 
         
@@ -35,14 +41,21 @@ var search1 = lib1.find(ui().findByTag('name').text)
 
 var tyu = search1[0].field("nazwa")
 message(search1.length);
-search1[0].show()
+search1[nr].show()
         return true; 
     }).width(395),
 ]).horizontal(),
 
 
 
-    ui().edit('').tag('name'), 
+
+ui().layout([
+
+ui().edit('0').tag('name2').width(100), 
+
+ui().edit('').tag('name')
+
+]).horizontal(),
 
 
 
@@ -108,6 +121,7 @@ i.send();}).width(777),
 
 
 ui().button('szukaj w im').action(function() { 
+var nr = ui().findByTag('name2').text
 
 var lib1 = libByName("important");
 
@@ -115,7 +129,7 @@ var search1 = lib1.find(ui().findByTag('name').text)
 
 message(search1.length);
 
-libByName(search1[0].field("nazwa")).show()
+libByName(search1[nr].field("nazwa")).show()
 
         return true; 
     }).width(779).height(300),
