@@ -34,6 +34,10 @@ ui().findByTag('name').text = ""
 
 
 ui().button('szu biblia').action(function() {       
+var nr = ui().findByTag('name2').text
+if (nr == ""){
+nr = 0}
+
 var lib1 = libByName("Biblia audio memento");
 var search1 = lib1.find(ui().findByTag('name').text)
 var tyu = search1[0].field("nazwa")
