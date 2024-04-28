@@ -145,6 +145,15 @@ i.send();}).width(340),
 
 ]).horizontal(),
 
+
+
+
+ui().layout([
+ui().button('g').action(function() {
+var google = ("https://www.google.com/search?q=" + ui().findByTag('name').text)
+var i = intent("android.intent.action.VIEW"); i.data(google);
+i.send();}).width(100).height(300),
+
 ui().button('szukaj w im').action(function() { 
 var nr = ui().findByTag('name2').text
 if (nr == ""){
@@ -154,7 +163,8 @@ var search1 = lib1.find(ui().findByTag('name').text)
 message(search1.length);
 libByName(search1[nr].field("nazwa")).show()
         return true; 
-    }).width(785).height(300),
+    }).width(690).height(300)
+]).horizontal()
 ])
 )
 .show()
