@@ -175,14 +175,26 @@ edittag = "pogoda"}
 var google = ("https://www.google.com/search?q=" + edittag)
 var i = intent("android.intent.action.VIEW"); i.data(google);
 i.send();}).width(100).height(300),
+
 ui().button('szukaj w im').action(function() { 
 var nr = ui().findByTag('name2').text
 if (nr == ""){
 nr = 0}
+var name0 = ui().findByTag('name3').text
+if (name0 == ""){
 var lib1 = libByName("important");
 var search1 = lib1.find(ui().findByTag('name').text)
 message(search1.length);
 libByName(search1[nr].field("nazwa")).show()
+}
+else 
+var search2 = libByName("important").find(name0)
+var libA = search2[0].field("nazwa")
+message(libA)
+var lib1 = libByName(libA)
+var search1 = lib1.find(ui().findByTag('name').text)
+message(search1.length);
+search1[nr].show()
         return true; 
     }).width(690).height(300)
 ]).horizontal()
