@@ -26,10 +26,6 @@ search1[nr].show()
         return true; 
     }).width(250),
 
-
-
-
-
 ui().button('mo').action(function() {
 var min = Math.ceil(10000)
 var max = Math.floor(1000)
@@ -40,13 +36,6 @@ var kkk = jjj.toFixed(2)
 lib().entries()[ent].set("czas momentum",kkk)
 }
 }).width(200),
-
-
-
-
-
-
-
 
 ui().button('szu biblia').action(function() {       
 var nr = ui().findByTag('name2').text
@@ -74,17 +63,9 @@ var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send();
 }).width(200),
 
-
-
-
-
-
 ui().button('zer.').action(function() {
 ui().findByTag('name').text = ""
 }).width(190),
-
-
-
 
 ui().button('zap').action(function() {
 var note = ui().findByTag('name').text;
@@ -143,25 +124,16 @@ ui().findByTag('name').text = entry().images("zdjęcie")[nr].caption
         return true; 
     }).width(200),
 
-
-
 ui().button('show').action(function() {
 
 entry().show()
-
-
 }).width(200),
-
-
 
 ui().button('zablokuj').action(function() {var url = ("tasker://secondary?text=zablokujekran");
 var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send();}).width(340),
 
 ]).horizontal(),
-
-
-
 
 ui().layout([
 ui().button('g').action(function() {
@@ -209,8 +181,3 @@ dialog()
 ])
 )
 .show()
-
-
-
-
-        
