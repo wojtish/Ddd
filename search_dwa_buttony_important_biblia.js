@@ -201,27 +201,13 @@ search1[nr].show()
 
 ui().button("lista").action(function() {
 var wpis = libByName("important").findByKey("zbiorcza biblioteka")
-
-//var pole = wpis().field("nazwy bibliotek")
-
-//message(wpis.field("nazwy bibliotek"))
-
-
 var list = wpis.field("nazwy bibliotek")
-
-
 dialog()
 .text(list)
-
-
-
 .show()
-
-})
-
+}).width(790)
 ])
 )
-//.positiveButton("ok")
 .show()
 
 
