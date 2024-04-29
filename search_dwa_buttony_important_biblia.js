@@ -197,9 +197,31 @@ message(search1.length);
 search1[nr].show()
         return true; 
     }).width(690).height(300)
-]).horizontal()
+]).horizontal(),
+
+ui().button("lista").action(function() {
+var wpis = libByName("important").findByKey("zbiorcza biblioteka")
+
+//var pole = wpis().field("nazwy bibliotek")
+
+//message(wpis.field("nazwy bibliotek"))
+
+
+var list = wpis.field("nazwy bibliotek")
+
+
+dialog()
+.text(list)
+
+
+
+.show()
+
+})
+
 ])
 )
+//.positiveButton("ok")
 .show()
 
 
