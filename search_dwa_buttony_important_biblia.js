@@ -135,7 +135,7 @@ ui().button('g').action(function() {
 var edittag = ui().findByTag('name').text;
 
 
-if (edittag == ("p"))
+if (edittag == "p")
 
 {
 
@@ -199,6 +199,17 @@ ui().button("ważne").action(function() {
 
 dialog()
 .view(
+ui().layout([
+
+ui().layout([
+
+
+ui().button('ag').action(function() {libByName("agenda memento harmonogram terminarz kalendarz zadania").show()}).width(200),
+ui().button('zada').action(function() {libByName("zadania terminarz zajęć prac zadań zadania").show()}).width(200),
+ui().button('tymc').action(function() {libByName("zadania teraz tymczasowe wpisy").show()}).width(200),
+ui().button('bib').action(function() {libByName("Biblia audio memento").show()}).width(190)
+]).horizontal(),
+
 
 ui().layout([
 
@@ -208,6 +219,10 @@ ui().button('tymc').action(function() {libByName("zadania teraz tymczasowe wpisy
 ui().button('bib').action(function() {libByName("Biblia audio memento").show()}).width(190)
 ]).horizontal()
 
+
+
+
+])
 )
 .show()
 }).width(395)
