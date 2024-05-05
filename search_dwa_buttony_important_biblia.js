@@ -207,7 +207,15 @@ ui().layout([
 ui().button('ag').action(function() {libByName("agenda memento harmonogram terminarz kalendarz zadania").show()}).width(200),
 ui().button('zada').action(function() {libByName("zadania terminarz zajęć prac zadań zadania").show()}).width(200),
 ui().button('tymc').action(function() {libByName("zadania teraz tymczasowe wpisy").show()}).width(200),
-ui().button('bib').action(function() {libByName("Biblia audio memento").show()}).width(190)
+
+
+ui().button('szty').action(function() {
+
+var url = ("tasker://secondary?text=szukajmemento");
+var i = intent("android.intent.action.VIEW"); i.data(url);
+i.send();
+
+}).width(190)
 ]).horizontal(),
 
 
@@ -218,9 +226,6 @@ ui().button('zada').action(function() {libByName("zadania terminarz zajęć prac
 ui().button('tymc').action(function() {libByName("zadania teraz tymczasowe wpisy").show()}).width(200),
 ui().button('bib').action(function() {libByName("Biblia audio memento").show()}).width(190)
 ]).horizontal()
-
-
-
 
 ])
 )
