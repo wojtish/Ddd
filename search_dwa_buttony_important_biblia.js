@@ -112,8 +112,8 @@ message(entry().images("zdjęcie")[nr].caption)
 else if (calp == "t" ){
 
 ui().findByTag('name').text = entry().images("zdjęcie")[nr].caption
-calp = ""
 
+ui().findByTag('name3').text = ""
 }       
         return true; 
     }).width(200),
