@@ -95,6 +95,7 @@ e.show()
 ui().layout([
 ui().edit('').tag('name3').width(50),
 
+
 ui().button('podp.').action(function() { 
 
 var nr = ui().findByTag('name2').text
@@ -107,20 +108,13 @@ if (calp == ""){
 
 entry().images("zdjęcie")[nr].caption = ui().findByTag('name').text
 message(entry().images("zdjęcie")[nr].caption)
-//if (nr == ""){
-//entry().show()
-//}
-
 }
 else if (calp == "t" ){
 
 ui().findByTag('name').text = entry().images("zdjęcie")[nr].caption
+calp = ""
 
-//entry().images("zdjęcie")[nr].caption = entry().images("zdjęcie")[nr].caption + ui().findByTag('name').text
 }       
-//message(entry().images("zdjęcie")[nr].caption)
-
-//entry().show()
         return true; 
     }).width(200),
 
@@ -181,8 +175,6 @@ dialog()
 .text(list)
 .show()
 }).width(395),
-
-
 
 
 ui().button("ważne").action(function() {
