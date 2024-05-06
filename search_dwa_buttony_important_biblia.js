@@ -72,7 +72,7 @@ var note = ui().findByTag('name').text;
 libByName("dziennik").entries()[0].set("zajawka",note);
 libByName("dziennik").entries()[0].set("notatki",libByName("dziennik").entries()[0].field("notatki")+"\n\n"+note+"\n");
 
-ui().findByTag('name').text = ""
+//ui().findByTag('name').text = ""
 message("saved")
 return true;
 }
