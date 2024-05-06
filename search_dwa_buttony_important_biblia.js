@@ -123,9 +123,13 @@ ui().button('show').action(function() {
 entry().show()
 }).width(200),
 
-ui().button('zablokuj').action(function() {var url = ("tasker://secondary?text=zablokujekran");
+ui().button('zd').action(function() {
+libByName("zadania terminarz zajęć prac zadań zadania").show()
+}).width(150),
+
+ui().button('zab').action(function() {var url = ("tasker://secondary?text=zablokujekran");
 var i = intent("android.intent.action.VIEW"); i.data(url);
-i.send();}).width(340),
+i.send();}).width(185),
 
 ]).horizontal(),
 
