@@ -194,7 +194,12 @@ var toCopy = ui().findByTag('name').text
 var wpis = libByName("search").findByKey("kopiuj do schowka");
 wpis.set("copy to clipboard",toCopy)
 message(wpis.field("copy to clipboard"))
+
+ui().findByTag('name').text = ""
 }).width(150),
+
+
+
 ui().button("wkl").action(function() {
 var wpis = libByName("search").findByKey("kopiuj do schowka").field("copy to clipboard");
 ui().findByTag('name').text = wpis
