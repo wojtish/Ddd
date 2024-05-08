@@ -280,7 +280,7 @@ message(toto)
 }).width(150),
 
 ui().button("wszyst.").action(function() {
-var wpis = libByName("important").findByKey("zbiorcza biblioteka")
+var wpis = libByName("search").findByKey("zbiorcza biblioteka")
 var list = wpis.field("nazwy bibliotek")
 dialog()
 .text(list)
