@@ -67,16 +67,37 @@ ui().button('zer.').action(function() {
 ui().findByTag('name').text = ""
 }).width(190),
 
+
+
+
+
+
+
+
+
 ui().button('zap').action(function() {
+
+
 var note = ui().findByTag('name').text;
-libByName("dziennik").entries()[0].set("zajawka",note);
-libByName("dziennik").entries()[0].set("notatki",libByName("dziennik").entries()[0].field("notatki")+"\n\n"+note+"\n");
+var nr = ui().findByTag('name2').text
+if (nr == ""){
+nr = 0}
+
+
+libByName("dziennik").entries()[nr].set("zajawka",note);
+libByName("dziennik").entries()[nr].set("notatki",libByName("dziennik").entries()[nr].field("notatki")+"\n\n"+note+"\n");
 
 //ui().findByTag('name').text = ""
 message("saved")
 return true;
 }
 ).width(200),
+
+
+
+
+
+
 
 ui().button('ins').action(function() {
 function getRandomInteger(max) {
@@ -94,23 +115,17 @@ e.show()
 
 ui().layout([
 ui().edit('').tag('name3').width(50),
-
-
 ui().button('podp.').action(function() { 
-
 var nr = ui().findByTag('name2').text
 if (nr == ""){
 nr = 0}
 
 var calp = ui().findByTag('name3').text
-
 if (calp == ""){
-
 entry().images("zdjęcie")[nr].caption = ui().findByTag('name').text
 message(entry().images("zdjęcie")[nr].caption)
 }
 else if (calp == "t" ){
-
 ui().findByTag('name').text = entry().images("zdjęcie")[nr].caption
 
 ui().findByTag('name3').text = ""
@@ -119,7 +134,6 @@ ui().findByTag('name3').text = ""
     }).width(200),
 
 ui().button('show').action(function() {
-
 entry().show()
 }).width(200),
 
@@ -130,17 +144,9 @@ libByName("zadania terminarz zajęć prac zadań zadania").show()
 ui().button('zab').action(function() {var url = ("tasker://secondary?text=zablokujekran");
 var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send();}).width(185),
-
 ]).horizontal(),
 
-
-
-
-
-
-
 ui().layout([
-
 ui().button("cop").action(function() {
 var toCopy = ui().findByTag('name').text
 var wpis = libByName("search").findByKey("kopiuj do schowka");
@@ -149,8 +155,6 @@ message(wpis.field("copy to clipboard"))
 
 ui().findByTag('name').text = ""
 }).width(150),
-
-
 
 ui().button("wkl").action(function() {
 var wpis = libByName("search").findByKey("kopiuj do schowka").field("copy to clipboard");
@@ -193,38 +197,19 @@ ui().button('bib').action(function() {libByName("Biblia audio memento").show()})
 )
 .show()
 }).width(258)
-
-
-
 ]).horizontal(),
-
-
-
-
-
-
-
-
 
 ui().layout([
 ui().button('g').action(function() {
-
 var edittag = ui().findByTag('name').text;
-
-
 if (edittag == "p")
 
 {
-
 edittag = "pogoda"
-
 var google = ("https://www.google.com/search?q=" + edittag);
 var i = intent("android.intent.action.VIEW"); i.data(google);
 i.send()
 }
-
-
-
 else {
 var google = ("https://www.google.com/search?q=" + edittag);
 var i = intent("android.intent.action.VIEW"); i.data(google);
@@ -232,10 +217,6 @@ i.send();
 }
 return true; }
 ).width(100).height(300),
-
-
-
-
 
 ui().button('szukaj w im').action(function() { 
 var nr = ui().findByTag('name2').text
@@ -270,8 +251,6 @@ message(wpis.field("copy to clipboard"))
 
 ui().findByTag('name').text = ""
 }).width(150),
-
-
 
 ui().button("wkl").action(function() {
 var wpis = libByName("search").findByKey("kopiuj do schowka").field("copy to clipboard");
