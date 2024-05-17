@@ -271,7 +271,7 @@ dialog()
 ui().layout([
 ui().layout([
 ui().button('ag').action(function() {libByName("agenda memento harmonogram terminarz kalendarz zadania").show()}).width(200),
-ui().button('zada').action(function() {libByName("zadania terminarz zajęć prac zadań zadania").show()}).width(200),
+ui().button('ogró').action(function() {libByName("mój ogród").show()}).width(200),
 ui().button('tymc').action(function() {libByName("zadania teraz tymczasowe wpisy").show()}).width(200),
 
 ui().button('szty').action(function() {
