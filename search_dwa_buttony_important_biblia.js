@@ -287,7 +287,22 @@ ui().button('dzie').action(function() {libByName("dziennik").show()}).width(200)
 ui().button('zada').action(function() {libByName("zadania terminarz zajęć prac zadań zadania").show()}).width(200),
 ui().button('tymc').action(function() {libByName("zadania teraz tymczasowe wpisy").show()}).width(200),
 ui().button('bib').action(function() {libByName("Biblia audio memento").show()}).width(190)
+]).horizontal(),
+ui().layout([
+ui().button('dzie').action(function() {libByName("dziennik").show()}).width(200),
+ui().button('zada').action(function() {libByName("zadania terminarz zajęć prac zadań zadania").show()}).width(200),
+ui().button('tymc').action(function() {libByName("zadania teraz tymczasowe wpisy").show()}).width(200),
+ui().button('bib').action(function() {libByName("Biblia audio memento").show()}).width(190)
+]).horizontal(),
+
+ui().layout([
+ui().button('dzie').action(function() {libByName("dziennik").show()}).width(200),
+ui().button('zada').action(function() {libByName("zadania terminarz zajęć prac zadań zadania").show()}).width(200),
+ui().button('tymc').action(function() {libByName("zadania teraz tymczasowe wpisy").show()}).width(200),
+
+ui().button('dz.0').action(function() {libByName("dziennik").entries()[0].show()}).width(190)
 ]).horizontal()
+
 
 ])
 )
