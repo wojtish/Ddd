@@ -162,13 +162,74 @@ ui().findByTag('name').text = wpis
 message(toto)
 }).width(150),
 
-ui().button("wszyst.").action(function() {
-var wpis = libByName("important").findByKey("zbiorcza biblioteka")
-var list = wpis.field("nazwy bibliotek")
-dialog()
-.text(list)
-.show()
-}).width(230),
+
+
+
+
+
+
+ui().button("losIM").action(function() {
+
+var nr = ui().findByTag('name2').text
+if (nr == ""){
+nr = 0}
+var name0 = ui().findByTag('name3').text
+if (name0 == ""){
+var lib1 = libByName("important");
+var search1 = lib1.find(ui().findByTag('name').text)
+message(search1.length);
+
+
+
+function getRandomInteger(max) {
+    return Math.floor(Math.random() * max);
+}
+
+
+let entries = libByName(search1[nr].field("nazwa")).entries();
+
+
+let numberOfEntries = entries.length;
+let selection =
+    getRandomInteger(numberOfEntries);
+let e = entries[selection];
+// Put code to show this entry here
+e.show()
+
+
+
+//libByName(search1[nr].field("nazwa"))
+
+
+
+}
+else 
+var search2 = libByName("important").find(name0)
+var libA = search2[0].field("nazwa")
+message(libA)
+var lib1 = libByName(libA)
+var search1 = lib1.find(ui().findByTag('name').text)
+message(search1.length);
+search1[nr].show()
+        return true; 
+    }).width(230),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ui().button("ważne").action(function() {
 dialog()
 .view(
