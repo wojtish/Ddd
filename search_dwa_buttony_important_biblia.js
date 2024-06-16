@@ -230,33 +230,10 @@ search1[nr].show()
 
 
 
-ui().button("ważne").action(function() {
-dialog()
-.view(
-ui().layout([
-ui().layout([
-ui().button('ag').action(function() {libByName("agenda memento harmonogram terminarz kalendarz zadania").show()}).width(200),
-ui().button('zada').action(function() {libByName("zadania terminarz zajęć prac zadań zadania").show()}).width(200),
-ui().button('tymc').action(function() {libByName("zadania teraz tymczasowe wpisy").show()}).width(200),
+ui().button("dz.0").action(function() {
+libByName("dziennik").entries()[0].show()
 
-ui().button('szty').action(function() {
 
-var url = ("tasker://secondary?text=szukajmemento");
-var i = intent("android.intent.action.VIEW"); i.data(url);
-i.send();
-}).width(190)
-]).horizontal(),
-
-ui().layout([
-ui().button('dzie').action(function() {libByName("dziennik").show()}).width(200),
-ui().button('zada').action(function() {libByName("zadania terminarz zajęć prac zadań zadania").show()}).width(200),
-ui().button('tymc').action(function() {libByName("zadania teraz tymczasowe wpisy").show()}).width(200),
-ui().button('bib').action(function() {libByName("Biblia audio memento").show()}).width(190)
-]).horizontal()
-
-])
-)
-.show()
 }).width(258)
 ]).horizontal(),
 
@@ -326,6 +303,9 @@ dialog()
 .text(list)
 .show()
 }).width(230),
+
+
+
 ui().button("ważne").action(function() {
 dialog()
 .view(
