@@ -228,13 +228,19 @@ search1[nr].show()
 
 
 
+ui().button("dz.").action(function() {
+
+libByName("dziennik").show()
+
+}).width(150),
 
 
-ui().button("dz.0").action(function() {
+ui().button("0").action(function() {
 libByName("dziennik").entries()[0].show()
 
 
-}).width(258)
+}).width(108)
+
 ]).horizontal(),
 
 ui().layout([
