@@ -113,25 +113,61 @@ e.show()
 }).width(190),
 ]).horizontal(),
 
+
+
+
+
 ui().layout([
 ui().edit('').tag('name3').width(50),
+
+
+
 ui().button('podp.').action(function() { 
+
 var nr = ui().findByTag('name2').text
 if (nr == ""){
 nr = 0}
 
 var calp = ui().findByTag('name3').text
+
+
 if (calp == ""){
 entry().images("zdjęcie")[nr].caption = ui().findByTag('name').text
+
 message(entry().images("zdjęcie")[nr].caption)
 }
+
+
 else if (calp == "t" ){
 ui().findByTag('name').text = entry().images("zdjęcie")[nr].caption
 
 ui().findByTag('name3').text = ""
 }       
+
+
+
+
+else if (calp == "d" ){
+entry().images("zdjęcie drugie")[nr].caption = ui().findByTag('name').text
+
+ui().findByTag('name3').text = ""
+}       
+
+
+else if (calp == "dk" ){
+ui().findByTag('name').text = entry().images("zdjęcie drugie")[nr].caption
+
+ui().findByTag('name3').text = ""
+}       
+
+
+
         return true; 
     }).width(200),
+
+
+
+
 
 ui().button('show').action(function() {
 entry().show()
@@ -161,11 +197,6 @@ var wpis = libByName("search").findByKey("kopiuj do schowka").field("copy to cli
 ui().findByTag('name').text = wpis
 message(toto)
 }).width(150),
-
-
-
-
-
 
 
 ui().button("losIM").action(function() {
@@ -213,18 +244,6 @@ message(search1.length);
 search1[nr].show()
         return true; 
     }).width(230),
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
