@@ -321,17 +321,17 @@ ui().findByTag('name').text = wpis
 message(toto)
 }).width(150),
 
-ui().button("wszyst.").action(function() {
+ui().button("wst").action(function() {
 var wpis = libByName("search").findByKey("zbiorcza biblioteka")
 var list = wpis.field("nazwy bibliotek")
 dialog()
 .text(list)
 .show()
-}).width(230),
+}).width(155),
 
 
 
-ui().button("ważne").action(function() {
+ui().button("waż").action(function() {
 dialog()
 .view(
 ui().layout([
@@ -369,14 +369,21 @@ ui().button('dzie').action(function() {libByName("dziennik").show()}).width(200)
 ui().button('zada').action(function() {libByName("zadania terminarz zajęć prac zadań zadania").show()}).width(200),
 ui().button('tymc').action(function() {libByName("zadania teraz tymczasowe wpisy").show()}).width(200),
 
-ui().button('dz.0').action(function() {libByName("dziennik").entries()[0].show()}).width(190)
+ui().button('dz.0').action(function() {libByName("dziennik").entries()[0].show()}).width(100)
 ]).horizontal()
 
 
 ])
 )
 .show()
-}).width(258)
+}).width(160),
+ui().button('szty').action(function() {
+
+var url = ("tasker://secondary?text=szukajmemento");
+var i = intent("android.intent.action.VIEW"); i.data(url);
+i.send();
+}).width(190)
+
 
 ]).horizontal()
 ])
