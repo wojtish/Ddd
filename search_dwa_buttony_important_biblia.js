@@ -301,7 +301,16 @@ var search1 = lib1.find(ui().findByTag('name').text)
 message(search1.length);
 search1[nr].show()
         return true; 
-    }).width(690).height(300)
+    }).width(590).height(300),
+
+
+ui().button('a').action(function() {
+libByName("akcesoria sprzęt sportowy memento").show()}
+
+).width(100).height(300),
+
+
+
 ]).horizontal(),
 
 ui().layout([
