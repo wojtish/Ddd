@@ -120,9 +120,7 @@ e.show()
 ui().layout([
 ui().edit('').tag('name3').width(50),
 
-
-
-ui().button('podp.').action(function() { 
+ui().button('po1').action(function() { 
 
 var nr = ui().findByTag('name2').text
 if (nr == ""){
@@ -163,15 +161,41 @@ ui().findByTag('name3').text = ""
 
 
         return true; 
-    }).width(200),
+    }).width(150),
+
+
+ui().button('po2').action(function() { 
+
+var nr = ui().findByTag('name2').text
+if (nr == ""){
+nr = 0}
+
+var calp = ui().findByTag('name3').text
+
+
+if (calp == ""){
+entry().images("zdjęcie drugie")[nr].caption = ui().findByTag('name').text
+
+message(entry().images("zdjęcie")[nr].caption)
+}
+
+
+else if (calp == "t" ){
+ui().findByTag('name').text = entry().images("zdjęcie drugie")[nr].caption
+
+ui().findByTag('name3').text = ""
+}       
+
+        return true; 
+    }).width(150),
 
 
 
 
 
-ui().button('show').action(function() {
+ui().button('sh').action(function() {
 entry().show()
-}).width(200),
+}).width(120),
 
 ui().button('zd').action(function() {
 libByName("zadania terminarz zajęć prac zadań zadania").show()
