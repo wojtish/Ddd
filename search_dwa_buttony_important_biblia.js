@@ -61,11 +61,11 @@ ui().button('jas').action(function() {
 var url = ("tasker://secondary?text=jasnyciemnymotyw");
 var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send();
-}).width(200),
+}).width(141),
 
 ui().button('zer.').action(function() {
 ui().findByTag('name').text = ""
-}).width(190),
+}).width(155),
 
 
 
@@ -91,7 +91,15 @@ libByName("dziennik").entries()[nr].set("notatki",libByName("dziennik").entries(
 message("saved")
 return true;
 }
-).width(200),
+).width(146),
+
+ui().button('bib').action(function() {
+
+
+
+libByName("biblia audio memento").show()
+}
+).width(146),
 
 
 
