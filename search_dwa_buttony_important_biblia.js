@@ -313,6 +313,26 @@ i.send();
 return true; }
 ).width(100).height(300),
 
+
+
+ui().button('szulib').action(function() {
+
+
+lib().show()
+
+var linkt = "tasker://secondary?text="
+var intview = intent("android.intent.action.VIEW");
+
+
+intview.data(linkt + "szukajwlib")
+intview.send()
+
+
+return true; }
+).width(200).height(300),
+
+
+
 ui().button('szukaj w im').action(function() { 
 var nr = ui().findByTag('name2').text
 if (nr == ""){
@@ -333,7 +353,7 @@ var search1 = lib1.find(ui().findByTag('name').text)
 message(search1.length);
 search1[nr].show()
         return true; 
-    }).width(590).height(300),
+    }).width(390).height(300),
 
 
 ui().button('a').action(function() {
