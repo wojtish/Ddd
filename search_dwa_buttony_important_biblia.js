@@ -12,7 +12,28 @@ ui().button('lib').action(function() {lib().show()}).width(190)
 ]).horizontal(),
 
 ui().layout([
-ui().button('szu. dz.').action(function() { 
+
+
+
+
+
+ui().button('t').action(function() {
+
+var calp = ui().findByTag('name3').text
+
+
+ui().findByTag('name3').text = "t"
+
+
+
+}).width(100),
+
+
+
+
+
+
+ui().button('szdz').action(function() { 
 //var libs = libByName("important").entries()
 //var names = libs.field("nazwa")
 var nr = ui().findByTag('name2').text
@@ -24,7 +45,7 @@ var search1 = libByName("dziennik").find(ui().findByTag('name').text)
 message(search1.length);
 search1[nr].show()
         return true; 
-    }).width(250),
+    }).width(166),
 
 ui().button('mo').action(function() {
 var min = Math.ceil(10000)
@@ -35,7 +56,7 @@ var jjj = ggg / 100
 var kkk = jjj.toFixed(2)
 lib().entries()[ent].set("czas momentum",kkk)
 }
-}).width(200),
+}).width(131),
 
 ui().button('szu biblia').action(function() {       
 var nr = ui().findByTag('name2').text
