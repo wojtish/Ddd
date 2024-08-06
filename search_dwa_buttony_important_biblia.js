@@ -70,8 +70,13 @@ message(search1.length);
 search1[nr].show()
         return true; 
     }).width(280),
-ui().edit('').tag('name2').width(50), 
+
+
+ui().edit('').tag('name2').width(100), 
 ]).horizontal(),
+
+
+
 
 ui().layout([
 ui().edit('').tag('name')
@@ -315,6 +320,12 @@ libByName("dziennik").entries()[0].show()
 
 ]).horizontal(),
 
+
+
+
+
+
+
 ui().layout([
 ui().button('g').action(function() {
 var edittag = ui().findByTag('name').text;
@@ -334,22 +345,56 @@ i.send();
 return true; }
 ).width(100).height(300),
 
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
 
 
 ui().button('szulib').action(function() {
 
+
+var bib = ui().findByTag('name2').text
+
+if (bib == "" && ui().findByTag('name').text == ""){
 
 lib().show()
 
 var linkt = "tasker://secondary?text="
 var intview = intent("android.intent.action.VIEW");
 
+intview.data(linkt + "szukajwlib")
+intview.send()
+}
+
+else if(
+ui().findByTag('name').text == ""
+)
+{
+var lib1 = libByName("important");
+var search1 = lib1.find(ui().findByTag('name2').text)
+
+message(search1.length);
+libByName(search1[0].field("nazwa")).show()
+
+var linkt = "tasker://secondary?text="
+var intview = intent("android.intent.action.VIEW");
 
 intview.data(linkt + "szukajwlib")
 intview.send()
+}
+else 
+//&& ui().findByTag('name').text ==! "")
+//{
+{
+var linkt = "tasker://secondary?text="
+var intview = intent("android.intent.action.VIEW");
 
-
+intview.data(linkt + "zaznaczselectmemento")
+intview.send()
+}
 return true; }
+
 ).width(200).height(300),
 
 
