@@ -345,13 +345,9 @@ i.send();
 return true; }
 ).width(100).height(300),
 
-///////////////////////////////
-///////////////////////////////
-///////////////////////////////
-///////////////////////////////
 
 
-ui().button('szulib').action(function() {
+ui().button('s').action(function() {
 
 
 var bib = ui().findByTag('name2').text
@@ -395,7 +391,69 @@ intview.send()
 }
 return true; }
 
-).width(200).height(300),
+).width(120).height(300),
+
+
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+
+
+
+
+ui().button('w').action(function() {
+
+
+var bib = ui().findByTag('name2').text
+
+if (bib == "" && ui().findByTag('name').text == ""){
+
+lib().show()
+
+var linkt = "tasker://secondary?text="
+var intview = intent("android.intent.action.VIEW");
+
+intview.data(linkt + "szukajwlibWklej")
+intview.send()
+}
+
+else if(
+ui().findByTag('name').text == ""
+)
+{
+var lib1 = libByName("important");
+var search1 = lib1.find(ui().findByTag('name2').text)
+
+message(search1.length);
+libByName(search1[0].field("nazwa")).show()
+
+var linkt = "tasker://secondary?text="
+var intview = intent("android.intent.action.VIEW");
+
+intview.data(linkt + "szukajwlibWklej")
+intview.send()
+}
+else 
+//&& ui().findByTag('name').text ==! "")
+//{
+{
+var linkt = "tasker://secondary?text="
+var intview = intent("android.intent.action.VIEW");
+
+intview.data(linkt + "zaznaczselectmemento")
+intview.send()
+}
+return true; }
+
+).width(120).height(300),
+
+
+
+
+
+
+
 
 
 
