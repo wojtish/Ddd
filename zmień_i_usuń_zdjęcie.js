@@ -14,7 +14,7 @@ if (primes[0] == null) {
 } 
 
 
-var imgPrimes = es.images(images);
+var imgPrimes = es.images(imagess);
 var capts = imgPrimes.map(as => as.caption);
 
 var prevCounts = parseInt(es.field(integers));
