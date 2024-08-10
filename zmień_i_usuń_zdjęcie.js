@@ -3,8 +3,8 @@ var e = entry();
 
 // Name of Primary field
 
-const images = "zdjęcie";  
-const integer = "integer";  
+var images = "zdjęcie";  
+var integer = "integer";  
 
 
 var prime = e.field(images);
