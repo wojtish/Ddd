@@ -1,51 +1,51 @@
 
-var e = entry();
+var es = entry();
 
 // Name of Primary field
 
-var images = "zdjęcie";  
-var integer = "integer";  
+var imagess = "zdjęcie";  
+var integers = "integer";  
 
 
-var prime = e.field(images);
+var primes = es.field(imagess);
 
-if (prime[0] == null) {
+if (primes[0] == null) {
   exit();
 } 
 
 
-var imgPrime = e.images(images);
-var capt = imgPrime.map(a => a.caption);
+var imgPrimes = es.images(images);
+var capts = imgPrimes.map(as => as.caption);
 
-var prevCount = parseInt(e.field(integer));
+var prevCounts = parseInt(es.field(integers));
 
-var imageCount = prime.length;
+var imageCounts = primes.length;
 
 
-var index = prevCount % imageCount;
+var indexs = prevCounts % imageCounts;
 
-if (index == 0) {
-  e.set(integer, 1);
+if (indexs == 0) {
+  es.set(integers, 1);
   exit();
 } 
 
-if (index < 0) {
-  index += imageCount;
+if (indexs < 0) {
+  indexs += imageCounts;
 }  
 
 
-var newPrime = shiftArray(index, prime);
-var newCapt = shiftArray(index, capt);
+var newPrimes = shiftArray(indexs, primes);
+var newCapts = shiftArray(indexs, capts);
 
-e.set(integer, 1);
-e.set(images, newPrime);
+es.set(integers, 1);
+es.set(imagess, newPrimes);
 
 
-imgPrime = e.images(images);
+imgPrimes = es.images(imagess);
 
-for (k in imgPrime) {
+for (c in imgPrimes) {
 
-  imgPrime[k].caption = newCapt[k];
+  imgPrimes[c].caption = newCapts[c];
 
 } 
 
@@ -54,10 +54,10 @@ for (k in imgPrime) {
 function shiftArray(ind, arr) {
 
   var ar1 = arr.slice(- ind).reverse();
-  var ar2 = arr.slice(0, imageCount - ind).reverse();
+  var ar2 = arr.slice(0, imageCounts - ind).reverse();
 
   return [].concat(ar2, ar1).reverse(); 
 
 }
 
-prime.pop()
+primes.pop()
