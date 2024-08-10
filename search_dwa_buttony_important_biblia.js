@@ -5,10 +5,45 @@ ui().layout([
 
 ui().layout([
 
-ui().button('in').action(function() {libByName("inside").show()}).width(200),
-ui().button('im').action(function() {libByName("important").show()}).width(200),
-ui().button('mem').action(function() {libByName("memento open").show()}).width(200),
-ui().button('lib').action(function() {lib().show()}).width(190)
+
+
+
+ui().button('z1').action(function() {
+
+
+var t = entry().field("zdjęcie")[0]
+message(t)
+libByName("search").entries()[0].set("zdjęcie",t)
+
+
+
+}).width(120),
+
+
+
+
+
+
+
+ui().button('z2').action(function() {
+
+
+var t = entry().field("zdjęcie drugie")[0]
+message(t)
+libByName("search").entries()[0].set("zdjęcie drugie",t)
+
+
+
+
+}).width(130),
+
+
+
+
+ui().button('in').action(function() {libByName("inside").show()}).width(110),
+ui().button('im').action(function() {libByName("important").show()}).width(130),
+ui().button('mem').action(function() {libByName("memento open").show()}).width(165),
+ui().button('lib').action(function() {lib().show()}).width(160)
 ]).horizontal(),
 
 ui().layout([
@@ -491,20 +526,58 @@ libByName("akcesoria sprzęt sportowy memento").show()}
 
 ui().layout([
 
-ui().button("cop").action(function() {
-var toCopy = ui().findByTag('name').text
-var wpis = libByName("search").findByKey("kopiuj do schowka");
-wpis.set("copy to clipboard",toCopy)
-message(wpis.field("copy to clipboard"))
 
-ui().findByTag('name').text = ""
+
+
+
+
+
+
+ui().button("p").action(function() {
+
+
+var t = libByName("search").entries()[0].field("zdjęcie")[0]
+message(t)
+
+entry().set("zdjęcie chwilowe",t)
+//libByName("search").entries()[0].set("zdjęcie",t)
+
+
+
+//var toCopy = ui().findByTag('name').text
+//var wpis = libByName("search").findByKey("kopiuj do schowka");
+//wpis.set("copy to clipboard",toCopy)
+//message(wpis.field("copy to clipboard"))
+
+//ui().findByTag('name').text = ""
 }).width(150),
 
-ui().button("wkl").action(function() {
-var wpis = libByName("search").findByKey("kopiuj do schowka").field("copy to clipboard");
-ui().findByTag('name').text = wpis
-message(toto)
+ui().button("w").action(function() {
+
+
+var t = libByName("search").entries()[0].field("zdjęcie drugie")[0]
+message(t)
+
+entry().set("zdjęcie chwilowe",t)
+
+
+
+
+
+
+//var wpis = libByName("search").findByKey("kopiuj do schowka").field("copy to clipboard");
+//ui().findByTag('name').text = wpis
+//message(toto)
 }).width(150),
+
+
+
+
+
+
+
+
+
 
 ui().button("wst").action(function() {
 var wpis = libByName("search").findByKey("zbiorcza biblioteka")
