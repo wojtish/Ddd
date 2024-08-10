@@ -60,4 +60,5 @@ function shiftArray(ind, arr) {
 
 }
 
-primes.pop()
+es.field(imagess).pop()
+message("kk")
