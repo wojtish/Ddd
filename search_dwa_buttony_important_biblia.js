@@ -179,6 +179,20 @@ e.show()
 
 ui().button('__*__').action(function() {
 ui().findByTag('name').text = ui().findByTag('name').text + " * "
+
+
+//var url = ("tasker://secondary?text=zablokujekran");
+//var i = intent("android.intent.action.VIEW"); i.data(url);
+//i.send()
+//ui().findByTag('name').text.setSelectionRange(5,5)
+//ui().findByTag('name').text.focus()
+//var end = ui().findByTag('name').text.value.length
+//ui().findByTag('name').text.setSelectionRange(end, end)
+// scroll to the bottom if a textarea has long text
+//ui().findByTag('name').text.focus()
+
+
+
 }).width(240)
 
 ]).horizontal(),
@@ -271,7 +285,8 @@ ui().button('zd').action(function() {
 libByName("zadania terminarz zajęć prac zadań zadania").show()
 }).width(150),
 
-ui().button('zab').action(function() {var url = ("tasker://secondary?text=zablokujekran");
+ui().button('zab').action(function() {
+var url = ("tasker://secondary?text=zablokujekran");
 var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send();}).width(185),
 ]).horizontal(),
