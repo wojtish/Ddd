@@ -117,23 +117,22 @@ ui().layout([
 ui().edit('').tag('name')
 ]).horizontal(),
 
+
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+
+
+
+
+
 ui().layout([
-ui().button('jas').action(function() {
-var url = ("tasker://secondary?text=jasnyciemnymotyw");
-var i = intent("android.intent.action.VIEW"); i.data(url);
-i.send();
-}).width(141),
 
-ui().button('zer.').action(function() {
+
+ui().button('zer').action(function() {
 ui().findByTag('name').text = ""
-}).width(155),
-
-
-
-
-
-
-
+}).width(140),
 
 
 ui().button('zap').action(function() {
@@ -160,12 +159,7 @@ ui().button('bib').action(function() {
 
 libByName("biblia audio memento").show()
 }
-).width(146),
-
-
-
-
-
+).width(129),
 
 
 ui().button('ins').action(function() {
@@ -179,7 +173,14 @@ let selection =
 let e = entries[selection];
 // Put code to show this entry here
 e.show()
-}).width(190),
+}).width(131),
+
+
+
+ui().button('__*__').action(function() {
+ui().findByTag('name').text = ui().findByTag('name').text + " * "
+}).width(240)
+
 ]).horizontal(),
 
 
@@ -427,13 +428,6 @@ intview.send()
 return true; }
 
 ).width(120).height(300),
-
-
-///////////////////////////////
-///////////////////////////////
-///////////////////////////////
-///////////////////////////////
-
 
 
 
