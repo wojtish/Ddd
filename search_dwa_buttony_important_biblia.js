@@ -299,7 +299,7 @@ wpis.set("copy to clipboard",toCopy)
 message(wpis.field("copy to clipboard"))
 
 ui().findByTag('name').text = ""
-}).width(150),
+}).width(148),
 
 ui().button("wkl").action(function() {
 var wpis = libByName("search").findByKey("kopiuj do schowka").field("copy to clipboard");
@@ -308,7 +308,7 @@ message(toto)
 }).width(150),
 
 
-ui().button("losIM").action(function() {
+ui().button("los").action(function() {
 
 var nr = ui().findByTag('name2').text
 if (nr == ""){
@@ -352,22 +352,32 @@ var search1 = lib1.find(ui().findByTag('name').text)
 message(search1.length);
 search1[nr].show()
         return true; 
-    }).width(230),
+    }).width(141),
+
+ui().button('t').action(function() {
+
+var calp = ui().findByTag('name3').text
+
+
+ui().findByTag('name3').text = "t"
 
 
 
-ui().button("dz.").action(function() {
+}).width(120),
+
+
+ui().button("dz").action(function() {
 
 libByName("dziennik").show()
 
-}).width(150),
+}).width(130),
 
 
 ui().button("0").action(function() {
 libByName("dziennik").entries()[0].show()
 
 
-}).width(108)
+}).width(100)
 
 ]).horizontal(),
 
