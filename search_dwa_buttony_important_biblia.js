@@ -383,6 +383,16 @@ var edittag = ui().findByTag('name').text;
 if (edittag == "p")
 
 {
+
+var google = ("tasker://secondary?text=pogodagoogle2024");
+var i = intent("android.intent.action.VIEW"); i.data(google);
+i.send()
+}
+
+else if (edittag == "po")
+
+{
+
 edittag = "pogoda"
 var google = ("https://www.google.com/search?q=" + edittag);
 var i = intent("android.intent.action.VIEW"); i.data(google);
