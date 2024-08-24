@@ -579,29 +579,76 @@ entry().set("zdjęcie chwilowe",t)
 //message(wpis.field("copy to clipboard"))
 
 //ui().findByTag('name').text = ""
-}).width(150),
+}).width(90),
 
-ui().button("w").action(function() {
-
-
+ui().button("L").action(function() {
 var t = libByName("search").entries()[0].field("zdjęcie drugie")[0]
 message(t)
 
 entry().set("zdjęcie chwilowe",t)
 
-
-
-
-
-
 //var wpis = libByName("search").findByKey("kopiuj do schowka").field("copy to clipboard");
 //ui().findByTag('name').text = wpis
 //message(toto)
-}).width(150),
+}).width(90),
 
 
 
 
+ui().button("chw").action(function() {
+
+// zdj.chwilowe
+// ----- Start of Script ----- //
+
+// Variables //
+
+var e = entry();
+
+// Name of Primary field
+var images = "zdjęcie chwilowe"; 
+var przechowalnia = "zdjęcie";
+  //  <= Rename
+
+var prime = e.field(images);
+var second = e.field(przechowalnia);
+
+
+var capt = second.map(a => a.caption);
+
+var newCapt = []
+
+var newImages = [];
+var newPrime = [];
+var newSecond = [];
+
+var imageCount = prime.length;
+var secondCount = second.length;
+
+var firstImage = prime[imageCount[0]];
+
+
+second.push(prime[0]);
+newSecond = second
+
+prime.shift([0])
+newPrime = prime
+
+
+
+for (k=0; k<imageCount ; k++) {
+
+  second[k].caption = newCapt[k];}
+
+
+e.set(przechowalnia,newSecond)
+e.set(images,prime)
+
+
+
+// ----- End of Script ----- //
+
+
+}).width(157),
 
 
 
@@ -614,7 +661,7 @@ var list = wpis.field("nazwy bibliotek")
 dialog()
 .text(list)
 .show()
-}).width(155),
+}).width(151),
 
 
 
@@ -658,18 +705,16 @@ ui().button('tymc').action(function() {libByName("zadania teraz tymczasowe wpisy
 
 ui().button('dz.0').action(function() {libByName("dziennik").entries()[0].show()}).width(100)
 ]).horizontal()
-
-
 ])
 )
 .show()
-}).width(160),
-ui().button('szty').action(function() {
+}).width(154),
 
+ui().button('szty').action(function() {
 var url = ("tasker://secondary?text=szukajmemento");
 var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send();
-}).width(190)
+}).width(165)
 
 
 ]).horizontal()
