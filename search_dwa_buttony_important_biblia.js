@@ -93,10 +93,13 @@ lib().entries()[ent].set("czas momentum",kkk)
 }
 }).width(131),
 
-ui().button('szu biblia').action(function() {       
+
+
+ui().button('szub').action(function() {       
 var nr = ui().findByTag('name2').text
 if (nr == ""){
 nr = 0}
+
 
 var lib1 = libByName("Biblia audio memento");
 var search1 = lib1.find(ui().findByTag('name').text)
@@ -104,7 +107,27 @@ var tyu = search1[0].field("nazwa")
 message(search1.length);
 search1[nr].show()
         return true; 
-    }).width(280),
+    }).width(167),
+
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+
+ui().button('ok').action(function() {
+
+
+       
+        return true; 
+    }).width(167),
+
+
+
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+
 
 
 ui().edit('').tag('name2').width(100), 
@@ -118,10 +141,6 @@ ui().edit('').tag('name')
 ]).horizontal(),
 
 
-///////////////////////////////
-///////////////////////////////
-///////////////////////////////
-///////////////////////////////
 
 
 
