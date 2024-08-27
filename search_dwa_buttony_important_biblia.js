@@ -115,6 +115,9 @@ search1[nr].show()
 ///////////////////////////////
 
 ui().button('ok').action(function() {
+var url = ("tasker://secondary?text=backbuttonlink");
+var i = intent("android.intent.action.VIEW"); i.data(url);
+i.send();
 
 
        
@@ -739,4 +742,4 @@ i.send();
 ]).horizontal()
 ])
 )
-.show()
+.show() 
