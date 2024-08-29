@@ -109,10 +109,6 @@ search1[nr].show()
         return true; 
     }).width(167),
 
-///////////////////////////////
-///////////////////////////////
-///////////////////////////////
-///////////////////////////////
 
 ui().button('ok').action(function() {
 var url = ("tasker://secondary?text=backbuttonlink");
@@ -124,12 +120,6 @@ i.send();
         return true; 
     }).width(167),
 
-
-
-///////////////////////////////
-///////////////////////////////
-///////////////////////////////
-///////////////////////////////
 
 
 
@@ -197,15 +187,22 @@ let e = entries[selection];
 e.show()
 }).width(131),
 
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
 
 
 ui().button('__*__').action(function() {
 ui().findByTag('name').text = ui().findByTag('name').text + " * "
 
 
-//var url = ("tasker://secondary?text=zablokujekran");
-//var i = intent("android.intent.action.VIEW"); i.data(url);
-//i.send()
+
+
+
+var url = ("tasker://secondary?text=cursorend");
+var i = intent("android.intent.action.VIEW"); i.data(url);
+i.send()
 //ui().findByTag('name').text.setSelectionRange(5,5)
 //ui().findByTag('name').text.focus()
 //var end = ui().findByTag('name').text.value.length
@@ -220,6 +217,10 @@ ui().findByTag('name').text = ui().findByTag('name').text + " * "
 ]).horizontal(),
 
 
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
 
 
 
