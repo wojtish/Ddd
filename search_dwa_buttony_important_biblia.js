@@ -12,8 +12,10 @@ ui().button('z1').action(function() {
 
 
 var t = entry().field("zdjęcie")[0]
+//var c = entry().images("zdjęcie")[0].caption
 message(t)
 libByName("search").entries()[0].set("zdjęcie",t)
+//libByName("search").entries()[0].images("zdjęcie").caption = c
 
 
 
@@ -187,11 +189,6 @@ let e = entries[selection];
 e.show()
 }).width(131),
 
-///////////////////////////////
-///////////////////////////////
-///////////////////////////////
-///////////////////////////////
-
 
 ui().button('__*__').action(function() {
 ui().findByTag('name').text = ui().findByTag('name').text + " * "
@@ -215,12 +212,6 @@ i.send()
 }).width(240)
 
 ]).horizontal(),
-
-
-///////////////////////////////
-///////////////////////////////
-///////////////////////////////
-///////////////////////////////
 
 
 
@@ -437,7 +428,7 @@ var i = intent("android.intent.action.VIEW"); i.data(google);
 i.send();
 }
 return true; }
-).width(100).height(300),
+).width(100).height(150),
 
 
 
@@ -485,7 +476,7 @@ intview.send()
 }
 return true; }
 
-).width(120).height(300),
+).width(120).height(150),
 
 
 
@@ -533,14 +524,7 @@ intview.send()
 }
 return true; }
 
-).width(120).height(300),
-
-
-
-
-
-
-
+).width(120).height(150),
 
 
 
@@ -564,26 +548,113 @@ var search1 = lib1.find(ui().findByTag('name').text)
 message(search1.length);
 search1[nr].show()
         return true; 
-    }).width(390).height(300),
+    }).width(390).height(150),
 
 
 ui().button('a').action(function() {
 libByName("akcesoria sprzęt sportowy memento").show()}
 
-).width(100).height(300),
+).width(100).height(150),
+
+]).horizontal(),
+
+
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+ui().layout([
+
+ui().button("p3").action(function() {
+
+
+
+var nr = ui().findByTag('name2').text
+if (nr == ""){
+nr = 0}
+
+var calp = ui().findByTag('name3').text
+
+
+if (calp == ""){
+entry().images("trzecie zdjęcie")[nr].caption = ui().findByTag('name').text
+
+message(entry().images("trzecie zdjęcie")[nr].caption)
+}
+
+
+else if (calp == "t" ){
+ui().findByTag('name').text = entry().images("trzecie zdjęcie")[nr].caption
+
+ui().findByTag('name3').text = ""
+}       
+
+
+
+
+else if (calp == "d" ){
+entry().images("czwarte zdjęcie")[nr].caption = ui().findByTag('name').text
+
+ui().findByTag('name3').text = ""
+}       
+
+
+else if (calp == "dk" ){
+ui().findByTag('name').text = entry().images("czwarte zdjęcie")[nr].caption
+
+ui().findByTag('name3').text = ""
+}       
+
+
+
+        return true; 
+
+
+}).width(117),
+
+
+
+ui().button("p4").action(function() {
+
+var nr = ui().findByTag('name2').text
+if (nr == ""){
+nr = 0}
+
+var calp = ui().findByTag('name3').text
+
+
+if (calp == ""){
+entry().images("czwarte zdjęcie")[nr].caption = ui().findByTag('name').text
+
+message(entry().images("trzecie zdjęcie")[nr].caption)
+}
+
+
+else if (calp == "t" ){
+ui().findByTag('name').text = entry().images("czwarte zdjęcie")[nr].caption
+
+ui().findByTag('name3').text = ""
+}       
+
+        return true; 
+
+
+
+}).width(117)
+
 
 
 
 ]).horizontal(),
 
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+
+
+
 ui().layout([
-
-
-
-
-
-
-
 
 ui().button("p").action(function() {
 
@@ -593,8 +664,6 @@ message(t)
 
 entry().set("zdjęcie chwilowe",t)
 //libByName("search").entries()[0].set("zdjęcie",t)
-
-
 
 //var toCopy = ui().findByTag('name').text
 //var wpis = libByName("search").findByKey("kopiuj do schowka");
@@ -614,8 +683,6 @@ entry().set("zdjęcie chwilowe",t)
 //ui().findByTag('name').text = wpis
 //message(toto)
 }).width(90),
-
-
 
 
 ui().button("chw").action(function() {
@@ -656,26 +723,16 @@ newSecond = second
 prime.shift([0])
 newPrime = prime
 
-
-
 for (k=0; k<imageCount ; k++) {
 
   second[k].caption = newCapt[k];}
 
-
 e.set(przechowalnia,newSecond)
 e.set(images,prime)
 
-
-
 // ----- End of Script ----- //
 
-
 }).width(157),
-
-
-
-
 
 
 ui().button("wst").action(function() {
