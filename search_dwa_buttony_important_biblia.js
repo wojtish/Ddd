@@ -1,3 +1,5 @@
+// Wyzwalacz 4 test
+
 
 dialog()
 .view(
@@ -604,44 +606,46 @@ ui().findByTag('name').text = entry().images("czwarte zdjęcie")[nr].caption
 
 ui().findByTag('name3').text = ""
 }       
-
-
-
         return true; 
-
-
 }).width(117),
 
-
-
 ui().button("p4").action(function() {
-
 var nr = ui().findByTag('name2').text
 if (nr == ""){
 nr = 0}
-
 var calp = ui().findByTag('name3').text
-
-
 if (calp == ""){
 entry().images("czwarte zdjęcie")[nr].caption = ui().findByTag('name').text
 
 message(entry().images("trzecie zdjęcie")[nr].caption)
 }
-
-
 else if (calp == "t" ){
 ui().findByTag('name').text = entry().images("czwarte zdjęcie")[nr].caption
 
 ui().findByTag('name3').text = ""
 }       
-
         return true; 
+}).width(117),
 
 
 
-}).width(117)
+ui().button('z3').action(function() {
+var t = entry().field("trzecie zdjęcie")[0]
 
+message(t)
+libByName("search").entries()[0].set("zdjęcie",t)
+//libByName("search").entries()[0].images("zdjęcie").caption = c
+
+}).width(120),
+
+ui().button('z4').action(function() {
+
+
+var t = entry().field("czwarte zdjęcie")[0]
+message(t)
+libByName("search").entries()[0].set("zdjęcie drugie",t)
+
+}).width(130)
 
 
 
