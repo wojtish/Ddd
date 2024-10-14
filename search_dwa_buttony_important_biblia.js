@@ -645,7 +645,55 @@ var t = entry().field("czwarte zdjęcie")[0]
 message(t)
 libByName("search").entries()[0].set("zdjęcie drugie",t)
 
-}).width(130)
+}).width(130),
+ui().button("L3").action(function() {
+var t = libByName("search").entries()[0].field("trzecie zdjęcie")[0]
+message(t)
+
+entry().set("zdjęcie chwilowe",t)
+
+}).width(90),
+
+ui().button("L4").action(function() {
+var t = libByName("search").entries()[0].field("czwarte zdjęcie")[0]
+message(t)
+
+entry().set("zdjęcie chwilowe",t)
+
+}).width(90),
+
+ui().button("chw3").action(function() {
+
+var e = entry();
+
+var images = "zdjęcie chwilowe"; 
+var przechowalnia = "trzecie zdjęcie";
+
+var prime = e.field(images);
+var second = e.field(przechowalnia);
+var capt = second.map(a => a.caption);
+var newCapt = []
+var newImages = [];
+var newPrime = [];
+var newSecond = [];
+var imageCount = prime.length;
+var secondCount = second.length;
+var firstImage = prime[imageCount[0]];
+
+
+second.push(prime[0]);
+newSecond = second
+
+prime.shift([0])
+newPrime = prime
+
+for (k=0; k<imageCount ; k++) {
+
+  second[k].caption = newCapt[k];}
+
+e.set(przechowalnia,newSecond)
+e.set(images,prime)
+}).width(157)
 
 
 
