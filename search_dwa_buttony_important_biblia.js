@@ -617,7 +617,7 @@ ui().findByTag('name').text = entry().images("czwarte zdjęcie")[nr].caption
 ui().findByTag('name3').text = ""
 }       
         return true; 
-}).width(117),
+}).width(90),
 
 ui().button("p4").action(function() {
 var nr = ui().findByTag('name2').text
@@ -635,7 +635,7 @@ ui().findByTag('name').text = entry().images("czwarte zdjęcie")[nr].caption
 ui().findByTag('name3').text = ""
 }       
         return true; 
-}).width(117),
+}).width(90),
 
 
 
@@ -646,7 +646,7 @@ message(t)
 libByName("search").entries()[0].set("zdjęcie",t)
 //libByName("search").entries()[0].images("zdjęcie").caption = c
 
-}).width(120),
+}).width(90),
 
 ui().button('z4').action(function() {
 
@@ -655,7 +655,7 @@ var t = entry().field("czwarte zdjęcie")[0]
 message(t)
 libByName("search").entries()[0].set("zdjęcie drugie",t)
 
-}).width(130),
+}).width(90),
 
 ///////////////////////////////
 ///////////////////////////////
@@ -669,43 +669,55 @@ libByName("search").entries()[0].set("zdjęcie drugie",t)
 ui().button("I1").action(function() {
 
 var nr = ui().findByTag('name2').text
-
 if (nr == ""){
 nr = 0}
 var name0 = ui().findByTag('name3').text
 if (name0 == ""){
-
 var lib1 = libByName("important");
 var search1 = lib1.find(ui().findByTag('name').text)
-
 var id = entry().images("zdjęcie")[0].caption
-
-//message(search1.length);
-
-
-
 libByName(search1[nr].field("nazwa")).findById(id).show()
-
-
-//libByName(search1[nr].field("nazwa")).show()
 }
-
-// id pierwsze show
-
-//var id = entry().images("zdjęcie")[0].caption
-//var libe = ui().findByTag('name').text
-
-//libByName("zadania terminarz zajęć prac zadań zadania").findById(id).show()
-
-
-
-
 }).width(90),
 
 ui().button("I2").action(function() {
-
+var nr = ui().findByTag('name2').text
+if (nr == ""){
+nr = 0}
+var name0 = ui().findByTag('name3').text
+if (name0 == ""){
+var lib1 = libByName("important");
+var search1 = lib1.find(ui().findByTag('name').text)
+var id = entry().images("zdjęcie drugie")[0].caption
+libByName(search1[nr].field("nazwa")).findById(id).show()
+}
 }).width(90),
 
+ui().button("I3").action(function() {
+var nr = ui().findByTag('name2').text
+if (nr == ""){
+nr = 0}
+var name0 = ui().findByTag('name3').text
+if (name0 == ""){
+var lib1 = libByName("important");
+var search1 = lib1.find(ui().findByTag('name').text)
+var id = entry().images("trzecie zdjęcie")[0].caption
+libByName(search1[nr].field("nazwa")).findById(id).show()
+}
+}).width(90),
+
+ui().button("I4").action(function() {
+var nr = ui().findByTag('name2').text
+if (nr == ""){
+nr = 0}
+var name0 = ui().findByTag('name3').text
+if (name0 == ""){
+var lib1 = libByName("important");
+var search1 = lib1.find(ui().findByTag('name').text)
+var id = entry().images("czwarte zdjęcie")[0].caption
+libByName(search1[nr].field("nazwa")).findById(id).show()
+}
+}).width(90),
 
 
 
