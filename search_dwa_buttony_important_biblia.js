@@ -527,15 +527,25 @@ intview.send()
 return true; }
 
 ).width(120).height(150),
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+
+
 
 
 
 ui().button('szukaj w im').action(function() { 
+
+
 var nr = ui().findByTag('name2').text
+
 if (nr == ""){
 nr = 0}
 var name0 = ui().findByTag('name3').text
 if (name0 == ""){
+
 var lib1 = libByName("important");
 var search1 = lib1.find(ui().findByTag('name').text)
 message(search1.length);
@@ -646,29 +656,64 @@ message(t)
 libByName("search").entries()[0].set("zdjęcie drugie",t)
 
 }).width(130),
-ui().button("L3").action(function() {
-var t = libByName("search").entries()[0].field("trzecie zdjęcie")[0]
-message(t)
 
-entry().set("zdjęcie chwilowe",t)
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+///////////////////////////////
+
+
+
+
+
+ui().button("I1").action(function() {
+
+var nr = ui().findByTag('name2').text
+
+if (nr == ""){
+nr = 0}
+var name0 = ui().findByTag('name3').text
+if (name0 == ""){
+
+var lib1 = libByName("important");
+var search1 = lib1.find(ui().findByTag('name').text)
+
+var id = entry().images("zdjęcie")[0].caption
+
+//message(search1.length);
+
+
+
+libByName(search1[nr].field("nazwa")).findById(id).show()
+
+
+//libByName(search1[nr].field("nazwa")).show()
+}
+
+// id pierwsze show
+
+//var id = entry().images("zdjęcie")[0].caption
+//var libe = ui().findByTag('name').text
+
+//libByName("zadania terminarz zajęć prac zadań zadania").findById(id).show()
+
+
+
 
 }).width(90),
 
-ui().button("L4").action(function() {
-var t = libByName("search").entries()[0].field("czwarte zdjęcie")[0]
-message(t)
-
-entry().set("zdjęcie chwilowe",t)
+ui().button("I2").action(function() {
 
 }).width(90),
+
+
+
+
 
 ui().button("chw3").action(function() {
-
 var e = entry();
-
 var images = "zdjęcie chwilowe"; 
 var przechowalnia = "trzecie zdjęcie";
-
 var prime = e.field(images);
 var second = e.field(przechowalnia);
 var capt = second.map(a => a.caption);
@@ -679,50 +724,26 @@ var newSecond = [];
 var imageCount = prime.length;
 var secondCount = second.length;
 var firstImage = prime[imageCount[0]];
-
-
 second.push(prime[0]);
 newSecond = second
-
 prime.shift([0])
 newPrime = prime
-
 for (k=0; k<imageCount ; k++) {
-
   second[k].caption = newCapt[k];}
-
 e.set(przechowalnia,newSecond)
 e.set(images,prime)
 }).width(157)
 
-
-
 ]).horizontal(),
-
-///////////////////////////////
-///////////////////////////////
-///////////////////////////////
-///////////////////////////////
-
 
 
 ui().layout([
 
 ui().button("p").action(function() {
-
-
 var t = libByName("search").entries()[0].field("zdjęcie")[0]
 message(t)
 
 entry().set("zdjęcie chwilowe",t)
-//libByName("search").entries()[0].set("zdjęcie",t)
-
-//var toCopy = ui().findByTag('name').text
-//var wpis = libByName("search").findByKey("kopiuj do schowka");
-//wpis.set("copy to clipboard",toCopy)
-//message(wpis.field("copy to clipboard"))
-
-//ui().findByTag('name').text = ""
 }).width(90),
 
 ui().button("L").action(function() {
@@ -730,23 +751,13 @@ var t = libByName("search").entries()[0].field("zdjęcie drugie")[0]
 message(t)
 
 entry().set("zdjęcie chwilowe",t)
-
-//var wpis = libByName("search").findByKey("kopiuj do schowka").field("copy to clipboard");
-//ui().findByTag('name').text = wpis
-//message(toto)
 }).width(90),
 
 
 ui().button("chw").action(function() {
 
 // zdj.chwilowe
-// ----- Start of Script ----- //
-
-// Variables //
-
 var e = entry();
-
-// Name of Primary field
 var images = "zdjęcie chwilowe"; 
 var przechowalnia = "zdjęcie";
   //  <= Rename
@@ -762,28 +773,19 @@ var newCapt = []
 var newImages = [];
 var newPrime = [];
 var newSecond = [];
-
 var imageCount = prime.length;
 var secondCount = second.length;
-
 var firstImage = prime[imageCount[0]];
-
-
 second.push(prime[0]);
 newSecond = second
-
 prime.shift([0])
 newPrime = prime
 
 for (k=0; k<imageCount ; k++) {
 
   second[k].caption = newCapt[k];}
-
 e.set(przechowalnia,newSecond)
 e.set(images,prime)
-
-// ----- End of Script ----- //
-
 }).width(157),
 
 
@@ -794,8 +796,6 @@ dialog()
 .text(list)
 .show()
 }).width(151),
-
-
 
 ui().button("waż").action(function() {
 dialog()
