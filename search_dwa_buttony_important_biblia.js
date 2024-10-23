@@ -766,17 +766,15 @@ entry().set("zdjęcie chwilowe",t)
 }).width(90),
 
 
-ui().button("chw").action(function() {
+ui().button("ch1").action(function() {
 
 // zdj.chwilowe
 var e = entry();
 var images = "zdjęcie chwilowe"; 
 var przechowalnia = "zdjęcie";
   //  <= Rename
-
 var prime = e.field(images);
 var second = e.field(przechowalnia);
-
 
 var capt = second.map(a => a.caption);
 
@@ -798,7 +796,35 @@ for (k=0; k<imageCount ; k++) {
   second[k].caption = newCapt[k];}
 e.set(przechowalnia,newSecond)
 e.set(images,prime)
-}).width(157),
+}).width(117),
+
+ui().button("ch2").action(function() {
+
+// zdj.chwilowe
+var e = entry();
+var images = "zdjęcie chwilowe"; 
+var przechowalnia = "zdjęcie drugie";
+  //  <= Rename
+var prime = e.field(images);
+var second = e.field(przechowalnia);
+
+var capt = second.map(a => a.caption);
+var newCapt = []
+var newImages = [];
+var newPrime = [];
+var newSecond = [];
+var imageCount = prime.length;
+var secondCount = second.length;
+var firstImage = prime[imageCount[0]];
+second.push(prime[0]);
+newSecond = second
+prime.shift([0])
+newPrime = prime
+for (k=0; k<imageCount ; k++) {
+  second[k].caption = newCapt[k];}
+e.set(przechowalnia,newSecond)
+e.set(images,prime)
+}).width(117),
 
 
 ui().button("wst").action(function() {
@@ -809,7 +835,7 @@ dialog()
 .show()
 }).width(151),
 
-ui().button("waż").action(function() {
+ui().button("wż").action(function() {
 dialog()
 .view(
 ui().layout([
@@ -817,9 +843,7 @@ ui().layout([
 ui().button('ag').action(function() {libByName("agenda memento harmonogram terminarz kalendarz zadania").show()}).width(200),
 ui().button('ogró').action(function() {libByName("mój ogród").show()}).width(200),
 ui().button('tymc').action(function() {libByName("zadania teraz tymczasowe wpisy").show()}).width(200),
-
 ui().button('szty').action(function() {
-
 var url = ("tasker://secondary?text=szukajmemento");
 var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send();
@@ -852,7 +876,7 @@ ui().button('dz.0').action(function() {libByName("dziennik").entries()[0].show()
 ])
 )
 .show()
-}).width(154),
+}).width(114),
 
 ui().button('szty').action(function() {
 var url = ("tasker://secondary?text=szukajmemento");
