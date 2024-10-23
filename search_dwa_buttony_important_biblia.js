@@ -863,7 +863,7 @@ ui().button('ludz').action(function() {libByName("ludzie w miłości kontaktują
 
 ui().button('linki').action(function() {libByName("linki linki linki internet").show()}).width(200),
 
-ui().button('bib').action(function() {libByName("Biblia audio memento").show()}).width(190)
+ui().button('mie').action(function() {libByName("podsumowania miesięcy memento").show()}).width(190)
 ]).horizontal(),
 
 ui().layout([
