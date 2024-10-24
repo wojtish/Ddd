@@ -775,11 +775,8 @@ var przechowalnia = "zdjęcie";
   //  <= Rename
 var prime = e.field(images);
 var second = e.field(przechowalnia);
-
 var capt = second.map(a => a.caption);
-
 var newCapt = []
-
 var newImages = [];
 var newPrime = [];
 var newSecond = [];
@@ -804,10 +801,8 @@ ui().button("ch2").action(function() {
 var e = entry();
 var images = "zdjęcie chwilowe"; 
 var przechowalnia = "zdjęcie drugie";
-  //  <= Rename
 var prime = e.field(images);
 var second = e.field(przechowalnia);
-
 var capt = second.map(a => a.caption);
 var newCapt = []
 var newImages = [];
@@ -826,7 +821,6 @@ e.set(przechowalnia,newSecond)
 e.set(images,prime)
 }).width(117),
 
-
 ui().button("wst").action(function() {
 var wpis = libByName("search").findByKey("zbiorcza biblioteka")
 var list = wpis.field("nazwy bibliotek")
@@ -834,6 +828,9 @@ dialog()
 .text(list)
 .show()
 }).width(151),
+
+//////////////////////////
+//////////////////////////
 
 ui().button("wż").action(function() {
 dialog()
@@ -883,6 +880,16 @@ var url = ("tasker://secondary?text=szukajmemento");
 var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send();
 }).width(165)
+
+]).horizontal(),
+
+ui().layout([
+
+ui().button('radio').action(function() {
+var url = ("tasker://secondary?text=vradio1min");
+var i = intent("android.intent.action.VIEW"); i.data(url);
+i.send();
+}).width(800)
 
 
 ]).horizontal()
