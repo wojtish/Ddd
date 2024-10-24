@@ -885,11 +885,17 @@ i.send();
 
 ui().layout([
 
+ui().button('przedluz').action(function() {
+var url = ("tasker://secondary?text=vradioPrzedluz1minuta");
+var i = intent("android.intent.action.VIEW"); i.data(url);
+i.send();
+}).width(400),
+
 ui().button('radio').action(function() {
 var url = ("tasker://secondary?text=vradio1min");
 var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send();
-}).width(800)
+}).width(400)
 
 
 ]).horizontal()
