@@ -884,18 +884,28 @@ i.send();
 ]).horizontal(),
 
 ui().layout([
+ui().button('aimp').action(function() {
+var url = ("tasker://secondary?text=aimplaunch");
+var i = intent("android.intent.action.VIEW"); i.data(url);
+i.send();
+}).width(200),
 
 ui().button('przedluz').action(function() {
 var url = ("tasker://secondary?text=vradioPrzedluz1minuta");
 var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send();
-}).width(400),
+}).width(270),
 
 ui().button('radio').action(function() {
 var url = ("tasker://secondary?text=vradio1min");
 var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send();
-}).width(400)
+}).width(200),
+ui().button('stop').action(function() {
+var url = ("tasker://secondary?text=stopVradio2task");
+var i = intent("android.intent.action.VIEW"); i.data(url);
+i.send();
+}).width(200)
 
 
 ]).horizontal()
