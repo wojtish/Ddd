@@ -192,29 +192,15 @@ e.show()
 }).width(131),
 
 
-ui().button('__*__').action(function() {
+ui().button('*').action(function() {
 ui().findByTag('name').text = ui().findByTag('name').text + " * "
-
-
-
-
-
 var url = ("tasker://secondary?text=cursorend");
 var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send()
-//ui().findByTag('name').text.setSelectionRange(5,5)
-//ui().findByTag('name').text.focus()
-//var end = ui().findByTag('name').text.value.length
-//ui().findByTag('name').text.setSelectionRange(end, end)
-// scroll to the bottom if a textarea has long text
-//ui().findByTag('name').text.focus()
+}).width(100),
 
-
-
-}).width(240)
-
+ui().button('mie').action(function() {libByName("podsumowania miesięcy memento").show()}).width(190)
 ]).horizontal(),
-
 
 
 ui().layout([
