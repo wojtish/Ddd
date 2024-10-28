@@ -1,86 +1,37 @@
 // Wyzwalacz 4 test
-
-
 dialog()
 .view(
 ui().layout([
-
 ui().layout([
-
-
-
-
 ui().button('z1').action(function() {
-
-
 var t = entry().field("zdjęcie")[0]
-//var c = entry().images("zdjęcie")[0].caption
 message(t)
 libByName("search").entries()[0].set("zdjęcie",t)
-//libByName("search").entries()[0].images("zdjęcie").caption = c
-
-
-
 }).width(120),
 
-
-
-
-
-
-
 ui().button('z2').action(function() {
-
-
 var t = entry().field("zdjęcie drugie")[0]
 message(t)
 libByName("search").entries()[0].set("zdjęcie drugie",t)
-
-
-
-
 }).width(130),
-
-
-
 
 ui().button('in').action(function() {libByName("inside").show()}).width(110),
 ui().button('im').action(function() {libByName("important").show()}).width(130),
 ui().button('mem').action(function() {libByName("memento open").show()}).width(165),
 ui().button('lib').action(function() {lib().show()}).width(160)
 ]).horizontal(),
-
 ui().layout([
 
-
-
-
-
 ui().button('t').action(function() {
-
 var calp = ui().findByTag('name3').text
-
-
 ui().findByTag('name3').text = "t"
-
-
-
 }).width(100),
 
-
-
-
-
-
 ui().button('szdz').action(function() { 
-//var libs = libByName("important").entries()
-//var names = libs.field("nazwa")
 var nr = ui().findByTag('name2').text
 if (nr == ""){
 nr = 0}
 var search1 = libByName("dziennik").find(ui().findByTag('name').text) 
-//for (i = 0; i < libs.length; i++) {
-//var search1 =libByName(libs[i].field("nazwa")).find(ui().findByTag('name').text) }
 message(search1.length);
 search1[nr].show()
         return true; 
@@ -97,14 +48,10 @@ lib().entries()[ent].set("czas momentum",kkk)
 }
 }).width(131),
 
-
-
 ui().button('szub').action(function() {       
 var nr = ui().findByTag('name2').text
 if (nr == ""){
 nr = 0}
-
-
 var lib1 = libByName("Biblia audio memento");
 var search1 = lib1.find(ui().findByTag('name').text)
 var tyu = search1[0].field("nazwa")
@@ -113,70 +60,41 @@ search1[nr].show()
         return true; 
     }).width(167),
 
-
 ui().button('ok').action(function() {
 var url = ("tasker://secondary?text=backbuttonlink");
 var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send();
-
-
-       
         return true; 
     }).width(167),
 
-
-
-
 ui().edit('').tag('name2').width(100), 
 ]).horizontal(),
-
-
-
 
 ui().layout([
 ui().edit('').tag('name')
 ]).horizontal(),
 
-
-
-
-
-
-
 ui().layout([
-
-
 ui().button('zer').action(function() {
 ui().findByTag('name').text = ""
 }).width(140),
 
-
 ui().button('zap').action(function() {
-
-
 var note = ui().findByTag('name').text;
 var nr = ui().findByTag('name2').text
 if (nr == ""){
 nr = 0}
-
-
 libByName("dziennik").entries()[nr].set("zajawka",note);
 libByName("dziennik").entries()[nr].set("notatki",libByName("dziennik").entries()[nr].field("notatki")+"\n\n"+note+"\n");
-
-//ui().findByTag('name').text = ""
 message("saved")
 return true;
 }
 ).width(146),
 
 ui().button('bib').action(function() {
-
-
-
 libByName("biblia audio memento").show()
 }
 ).width(129),
-
 
 ui().button('ins').action(function() {
 function getRandomInteger(max) {
@@ -190,7 +108,6 @@ let e = entries[selection];
 // Put code to show this entry here
 e.show()
 }).width(131),
-
 
 ui().button('*').action(function() {
 ui().findByTag('name').text = ui().findByTag('name').text + " * "
@@ -416,122 +333,82 @@ var i = intent("android.intent.action.VIEW"); i.data(google);
 i.send();
 }
 return true; }
-).width(100).height(150),
-
-
+).width(100),
 
 ui().button('s').action(function() {
-
-
 var bib = ui().findByTag('name2').text
-
 if (bib == "" && ui().findByTag('name').text == ""){
-
 lib().show()
-
 var linkt = "tasker://secondary?text="
 var intview = intent("android.intent.action.VIEW");
-
 intview.data(linkt + "szukajwlib")
 intview.send()
 }
-
 else if(
 ui().findByTag('name').text == ""
 )
 {
 var lib1 = libByName("important");
 var search1 = lib1.find(ui().findByTag('name2').text)
-
 message(search1.length);
 libByName(search1[0].field("nazwa")).show()
-
 var linkt = "tasker://secondary?text="
 var intview = intent("android.intent.action.VIEW");
-
 intview.data(linkt + "szukajwlib")
 intview.send()
 }
-else 
-//&& ui().findByTag('name').text ==! "")
-//{
+else
 {
 var linkt = "tasker://secondary?text="
 var intview = intent("android.intent.action.VIEW");
-
 intview.data(linkt + "zaznaczselectmemento")
 intview.send()
 }
 return true; }
 
-).width(120).height(150),
-
-
+).width(120),
 
 ui().button('w').action(function() {
-
-
 var bib = ui().findByTag('name2').text
-
 if (bib == "" && ui().findByTag('name').text == ""){
-
 lib().show()
-
 var linkt = "tasker://secondary?text="
 var intview = intent("android.intent.action.VIEW");
-
 intview.data(linkt + "szukajwlibWklej")
 intview.send()
 }
-
 else if(
 ui().findByTag('name').text == ""
 )
 {
 var lib1 = libByName("important");
 var search1 = lib1.find(ui().findByTag('name2').text)
-
 message(search1.length);
 libByName(search1[0].field("nazwa")).show()
-
 var linkt = "tasker://secondary?text="
 var intview = intent("android.intent.action.VIEW");
-
 intview.data(linkt + "szukajwlibWklej")
 intview.send()
 }
 else 
-//&& ui().findByTag('name').text ==! "")
-//{
 {
 var linkt = "tasker://secondary?text="
 var intview = intent("android.intent.action.VIEW");
-
 intview.data(linkt + "zaznaczselectmemento")
 intview.send()
 }
 return true; }
-
-).width(120).height(150),
+).width(120),
 ///////////////////////////////
 ///////////////////////////////
 ///////////////////////////////
 ///////////////////////////////
-
-
-
-
-
-ui().button('szukaj w im').action(function() { 
-
-
+ui().button('szwim').action(function() { 
 var nr = ui().findByTag('name2').text
-
 if (nr == ""){
 nr = 0}
 var name0 = ui().findByTag('name3').text
 if (name0 == ""){
-
 var lib1 = libByName("important");
 var search1 = lib1.find(ui().findByTag('name').text)
 message(search1.length);
@@ -546,57 +423,39 @@ var search1 = lib1.find(ui().findByTag('name').text)
 message(search1.length);
 search1[nr].show()
         return true; 
-    }).width(390).height(150),
+}).width(230),
 
+ui().button('pkt').action(function() {
+libByName("punkty mapa GPS lokalizacje").show()}
+).width(150),
 
 ui().button('a').action(function() {
 libByName("akcesoria sprzęt sportowy memento").show()}
-
-).width(100).height(150),
-
+).width(100),
 ]).horizontal(),
-
-
 ///////////////////////////////
 ///////////////////////////////
 ///////////////////////////////
 ///////////////////////////////
 ui().layout([
-
 ui().button("p3").action(function() {
-
-
-
 var nr = ui().findByTag('name2').text
 if (nr == ""){
 nr = 0}
-
 var calp = ui().findByTag('name3').text
-
-
 if (calp == ""){
 entry().images("trzecie zdjęcie")[nr].caption = ui().findByTag('name').text
-
 message(entry().images("trzecie zdjęcie")[nr].caption)
 }
-
-
 else if (calp == "t" ){
 ui().findByTag('name').text = entry().images("trzecie zdjęcie")[nr].caption
-
 ui().findByTag('name3').text = ""
 }       
-
-
-
-
 else if (calp == "d" ){
 entry().images("czwarte zdjęcie")[nr].caption = ui().findByTag('name').text
 
 ui().findByTag('name3').text = ""
 }       
-
-
 else if (calp == "dk" ){
 ui().findByTag('name').text = entry().images("czwarte zdjęcie")[nr].caption
 
@@ -612,48 +471,31 @@ nr = 0}
 var calp = ui().findByTag('name3').text
 if (calp == ""){
 entry().images("czwarte zdjęcie")[nr].caption = ui().findByTag('name').text
-
 message(entry().images("trzecie zdjęcie")[nr].caption)
 }
 else if (calp == "t" ){
 ui().findByTag('name').text = entry().images("czwarte zdjęcie")[nr].caption
-
 ui().findByTag('name3').text = ""
 }       
         return true; 
 }).width(90),
 
-
-
 ui().button('z3').action(function() {
 var t = entry().field("trzecie zdjęcie")[0]
-
 message(t)
 libByName("search").entries()[0].set("zdjęcie",t)
-//libByName("search").entries()[0].images("zdjęcie").caption = c
-
 }).width(90),
 
 ui().button('z4').action(function() {
-
-
 var t = entry().field("czwarte zdjęcie")[0]
 message(t)
 libByName("search").entries()[0].set("zdjęcie drugie",t)
-
 }).width(90),
-
 ///////////////////////////////
 ///////////////////////////////
 ///////////////////////////////
 ///////////////////////////////
-
-
-
-
-
 ui().button("I1").action(function() {
-
 var nr = ui().findByTag('name2').text
 if (nr == ""){
 nr = 0}
@@ -705,9 +547,6 @@ libByName(search1[nr].field("nazwa")).findById(id).show()
 }
 }).width(90),
 
-
-
-
 ui().button("chw3").action(function() {
 var e = entry();
 var images = "zdjęcie chwilowe"; 
@@ -731,12 +570,9 @@ for (k=0; k<imageCount ; k++) {
 e.set(przechowalnia,newSecond)
 e.set(images,prime)
 }).width(157)
-
 ]).horizontal(),
 
-
 ui().layout([
-
 ui().button("p").action(function() {
 var t = libByName("search").entries()[0].field("zdjęcie")[0]
 message(t)
@@ -747,7 +583,6 @@ entry().set("zdjęcie chwilowe",t)
 ui().button("L").action(function() {
 var t = libByName("search").entries()[0].field("zdjęcie drugie")[0]
 message(t)
-
 entry().set("zdjęcie chwilowe",t)
 }).width(90),
 
@@ -758,7 +593,6 @@ ui().button("ch1").action(function() {
 var e = entry();
 var images = "zdjęcie chwilowe"; 
 var przechowalnia = "zdjęcie";
-  //  <= Rename
 var prime = e.field(images);
 var second = e.field(przechowalnia);
 var capt = second.map(a => a.caption);
@@ -892,7 +726,6 @@ var url = ("tasker://secondary?text=stopVradio2task");
 var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send();
 }).width(200)
-
 
 ]).horizontal()
 ])
