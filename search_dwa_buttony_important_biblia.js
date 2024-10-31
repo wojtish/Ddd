@@ -710,4 +710,13 @@ var url = ("tasker://secondary?text=vradio1min");
 var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send();
 }).width(200),
-ui(
+ui().button('stop').action(function() {
+var url = ("tasker://secondary?text=stopVradio2task");
+var i = intent("android.intent.action.VIEW"); i.data(url);
+i.send();
+}).width(200)
+
+]).horizontal()
+])
+)
+.show()
