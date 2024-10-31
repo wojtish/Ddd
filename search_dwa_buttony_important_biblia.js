@@ -119,82 +119,120 @@ i.send()
 ui().button('mie').action(function() {libByName("podsumowania miesięcy memento").show()}).width(190)
 ]).horizontal(),
 
-
 ui().layout([
 ui().edit('').tag('name3').width(50),
 
-ui().button('po1').action(function() { 
-
+ui().button('p1').action(function() { 
 var nr = ui().findByTag('name2').text
 if (nr == ""){
 nr = 0}
-
 var calp = ui().findByTag('name3').text
-
-
 if (calp == ""){
 entry().images("zdjęcie")[nr].caption = ui().findByTag('name').text
-
 message(entry().images("zdjęcie")[nr].caption)
 }
-
-
 else if (calp == "t" ){
 ui().findByTag('name').text = entry().images("zdjęcie")[nr].caption
-
 ui().findByTag('name3').text = ""
 }       
-
-
-
-
 else if (calp == "d" ){
 entry().images("zdjęcie drugie")[nr].caption = ui().findByTag('name').text
-
 ui().findByTag('name3').text = ""
 }       
-
-
 else if (calp == "dk" ){
 ui().findByTag('name').text = entry().images("zdjęcie drugie")[nr].caption
-
 ui().findByTag('name3').text = ""
 }       
-
-
-
         return true; 
-    }).width(150),
+}).width(117),
 
-
-ui().button('po2').action(function() { 
-
+ui().button('p2').action(function() { 
 var nr = ui().findByTag('name2').text
 if (nr == ""){
 nr = 0}
-
 var calp = ui().findByTag('name3').text
-
-
 if (calp == ""){
 entry().images("zdjęcie drugie")[nr].caption = ui().findByTag('name').text
-
 message(entry().images("zdjęcie")[nr].caption)
 }
-
-
 else if (calp == "t" ){
 ui().findByTag('name').text = entry().images("zdjęcie drugie")[nr].caption
-
 ui().findByTag('name3').text = ""
 }       
+ return true; 
+}).width(117),
 
-        return true; 
-    }).width(150),
+ui().button('1').action(function() {
+var e = entry();
+const images = "zdjęcie";  
+const integer = "integer";  
+var prime = e.field(images);
+if (prime[0] == null) {
+  exit();
+} 
+var imgPrime = e.images(images);
+var capt = imgPrime.map(a => a.caption);
+var prevCount = parseInt(e.field(integer));
+var imageCount = prime.length;
+var index = prevCount % imageCount;
+if (index == 0) {
+  e.set(integer, 1);
+  exit();
+} 
+if (index < 0) {
+  index += imageCount;
+}  
+var newPrime = shiftArray(index, prime);
+var newCapt = shiftArray(index, capt);
+e.set(integer, 1);
+e.set(images, newPrime);
+imgPrime = e.images(images);
+for (k in imgPrime) {
+  imgPrime[k].caption = newCapt[k];
+} 
+function shiftArray(ind, arr) {
+  var ar1 = arr.slice(- ind).reverse();
+  var ar2 = arr.slice(0, imageCount - ind).reverse();
+  return [].concat(ar2, ar1).reverse(); 
+}
+}).width(78),
 
+ui().button('2').action(function() {
+// zmien dwa obrazy czyli tutaj jeden
+var e = entry();
+const imagess = "zdjęcie drugie";  
+const integers = "integer";  
+var primes = e.field(imagess);
+if (primes[0] == null) {
+  exit();
+} 
+var imgPrimes = e.images(imagess);
+var capts = imgPrimes.map(a => a.caption);
+var prevCounts = parseInt(e.field(integers));
+var imageCounts = primes.length;
+var indexs = prevCounts % imageCounts;
+if (indexs == 0) {
+  e.set(integers, 1);
+  exit();
+} 
+if (indexs < 0) {
+  indexs += imageCounts;
+}  
+var newPrimes = shiftArray(indexs, primes);
+var newCapts = shiftArray(indexs, capts);
+e.set(integers, 1);
+e.set(imagess, newPrimes);
+imgPrimes = e.images(imagess);
 
-
-
+for (k in imgPrimes) {
+  imgPrimes[k].caption = newCapts[k];
+} 
+function shiftArray(ind, arr) {
+  var ar1 = arr.slice(- ind).reverse();
+  var ar2 = arr.slice(0, imageCounts - ind).reverse();
+  return [].concat(ar2, ar1).reverse(); 
+}
+}).width(90),
 
 ui().button('sh').action(function() {
 entry().show()
@@ -202,7 +240,7 @@ entry().show()
 
 ui().button('zd').action(function() {
 libByName("zadania terminarz zajęć prac zadań zadania").show()
-}).width(150),
+}).width(120),
 
 ui().button('zab').action(function() {
 var url = ("tasker://secondary?text=zablokujekran");
@@ -216,7 +254,6 @@ var toCopy = ui().findByTag('name').text
 var wpis = libByName("search").findByKey("kopiuj do schowka");
 wpis.set("copy to clipboard",toCopy)
 message(wpis.field("copy to clipboard"))
-
 ui().findByTag('name').text = ""
 }).width(148),
 
@@ -226,9 +263,7 @@ ui().findByTag('name').text = wpis
 message(toto)
 }).width(150),
 
-
 ui().button("los").action(function() {
-
 var nr = ui().findByTag('name2').text
 if (nr == ""){
 nr = 0}
@@ -237,30 +272,14 @@ if (name0 == ""){
 var lib1 = libByName("important");
 var search1 = lib1.find(ui().findByTag('name').text)
 message(search1.length);
-
-
-
 function getRandomInteger(max) {
     return Math.floor(Math.random() * max);
 }
-
-
 let entries = libByName(search1[nr].field("nazwa")).entries();
-
-
 let numberOfEntries = entries.length;
-let selection =
-    getRandomInteger(numberOfEntries);
+let selection =  getRandomInteger(numberOfEntries);
 let e = entries[selection];
-// Put code to show this entry here
 e.show()
-
-
-
-//libByName(search1[nr].field("nazwa"))
-
-
-
 }
 else 
 var search2 = libByName("important").find(name0)
@@ -274,54 +293,31 @@ search1[nr].show()
     }).width(141),
 
 ui().button('t').action(function() {
-
 var calp = ui().findByTag('name3').text
-
-
 ui().findByTag('name3').text = "t"
-
-
-
 }).width(120),
 
-
 ui().button("dz").action(function() {
-
 libByName("dziennik").show()
-
 }).width(130),
-
 
 ui().button("0").action(function() {
 libByName("dziennik").entries()[0].show()
-
-
 }).width(100)
 
 ]).horizontal(),
-
-
-
-
-
-
 
 ui().layout([
 ui().button('g').action(function() {
 var edittag = ui().findByTag('name').text;
 if (edittag == "p")
-
 {
-
 var google = ("tasker://secondary?text=pogodagoogle2024");
 var i = intent("android.intent.action.VIEW"); i.data(google);
 i.send()
 }
-
 else if (edittag == "po")
-
 {
-
 edittag = "pogoda"
 var google = ("https://www.google.com/search?q=" + edittag);
 var i = intent("android.intent.action.VIEW"); i.data(google);
@@ -576,7 +572,6 @@ ui().layout([
 ui().button("p").action(function() {
 var t = libByName("search").entries()[0].field("zdjęcie")[0]
 message(t)
-
 entry().set("zdjęcie chwilowe",t)
 }).width(90),
 
@@ -588,7 +583,6 @@ entry().set("zdjęcie chwilowe",t)
 
 
 ui().button("ch1").action(function() {
-
 // zdj.chwilowe
 var e = entry();
 var images = "zdjęcie chwilowe"; 
@@ -607,16 +601,13 @@ second.push(prime[0]);
 newSecond = second
 prime.shift([0])
 newPrime = prime
-
 for (k=0; k<imageCount ; k++) {
-
   second[k].caption = newCapt[k];}
 e.set(przechowalnia,newSecond)
 e.set(images,prime)
 }).width(117),
 
 ui().button("ch2").action(function() {
-
 // zdj.chwilowe
 var e = entry();
 var images = "zdjęcie chwilowe"; 
@@ -648,10 +639,8 @@ dialog()
 .text(list)
 .show()
 }).width(151),
-
 //////////////////////////
 //////////////////////////
-
 ui().button("wż").action(function() {
 dialog()
 .view(
@@ -721,13 +710,4 @@ var url = ("tasker://secondary?text=vradio1min");
 var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send();
 }).width(200),
-ui().button('stop').action(function() {
-var url = ("tasker://secondary?text=stopVradio2task");
-var i = intent("android.intent.action.VIEW"); i.data(url);
-i.send();
-}).width(200)
-
-]).horizontal()
-])
-)
-.show()
+ui(
