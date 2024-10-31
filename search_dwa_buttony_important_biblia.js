@@ -697,24 +697,29 @@ ui().button('aimp').action(function() {
 var url = ("tasker://secondary?text=aimplaunch");
 var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send();
-}).width(200),
+}).width(180),
 
-ui().button('przedluz').action(function() {
+ui().button('przed').action(function() {
 var url = ("tasker://secondary?text=vradioPrzedluz1minuta");
 var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send();
-}).width(270),
+}).width(195),
 
-ui().button('radio').action(function() {
+ui().button('vra').action(function() {
 var url = ("tasker://secondary?text=vradio1min");
 var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send();
-}).width(200),
-ui().button('stop').action(function() {
+}).width(150),
+ui().button('stp').action(function() {
 var url = ("tasker://secondary?text=stopVradio2task");
 var i = intent("android.intent.action.VIEW"); i.data(url);
 i.send();
-}).width(200)
+}).width(150),
+ui().button('usb').action(function() {
+var url = ("tasker://secondary?text=usbmoviesfilemanager+");
+var i = intent("android.intent.action.VIEW"); i.data(url);
+i.send();
+}).width(150)
 
 ]).horizontal()
 ])
