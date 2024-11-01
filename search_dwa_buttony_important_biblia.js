@@ -7,18 +7,44 @@ ui().button('z1').action(function() {
 var t = entry().field("zdjęcie")[0]
 message(t)
 libByName("search").entries()[0].set("zdjęcie",t)
-}).width(120),
+}).width(115),
 
 ui().button('z2').action(function() {
 var t = entry().field("zdjęcie drugie")[0]
 message(t)
 libByName("search").entries()[0].set("zdjęcie drugie",t)
-}).width(130),
+}).width(115),
 
-ui().button('in').action(function() {libByName("inside").show()}).width(110),
-ui().button('im').action(function() {libByName("important").show()}).width(130),
-ui().button('mem').action(function() {libByName("memento open").show()}).width(165),
-ui().button('lib').action(function() {lib().show()}).width(160)
+ui().button('in').action(function() {libByName("inside").show()}).width(107),
+ui().button('im').action(function() {libByName("important").show()}).width(114),
+ui().button('m').action(function() {libByName("memento open").show()}).width(95),
+
+ui().button('po').action(function() {
+// pokaż notatki
+var w =libByName("dziennik").entries()[0].field("notatki");
+var text =   w   ;
+const myd=dialog()
+myd
+   .text(text)
+.positiveButton("OK",()=>true)
+   .negativeButton(" przypisy ",() => {const myd=dialog()
+myd.title("przypisy")
+   .text(entry().field("przypisy osobno"))
+.positiveButton("OK",()=>true)
+.show()}
+)
+   .neutralButton("sumarum", ()=> 
+{
+myd.title("sumarum")
+   .text(text2)
+   .positiveButton(" OK ",()=>true)
+   .show();
+})
+.autoDismiss(false)
+   .show();
+}).width(122),
+
+ui().button('lib').action(function() {lib().show()}).width(126)
 ]).horizontal(),
 ui().layout([
 ui().button('t').action(function() {
@@ -688,7 +714,7 @@ myd
 .positiveButton("OK",()=>true)
    .negativeButton(" przypisy ",() => {const myd=dialog()
 myd.title("przypisy")
-   .text(entry().field("przypisy osobno"))
+.text(entry().field("przypisy osobno"))
 .positiveButton("OK",()=>true)
 .show()}
 )
@@ -749,4 +775,4 @@ i.send();
 ]).horizontal()
 ])
 )
-.show()
+.show()                                       
