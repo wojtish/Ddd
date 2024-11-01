@@ -21,7 +21,6 @@ ui().button('mem').action(function() {libByName("memento open").show()}).width(1
 ui().button('lib').action(function() {lib().show()}).width(160)
 ]).horizontal(),
 ui().layout([
-
 ui().button('t').action(function() {
 var calp = ui().findByTag('name3').text
 ui().findByTag('name3').text = "t"
@@ -677,7 +676,33 @@ ui().button('dzie').action(function() {libByName("dziennik").show()}).width(200)
 ui().button('zada').action(function() {libByName("zadania terminarz zajęć prac zadań zadania").show()}).width(200),
 ui().button('tymc').action(function() {libByName("zadania teraz tymczasowe wpisy").show()}).width(200),
 
-ui().button('dz.0').action(function() {libByName("dziennik").entries()[0].show()}).width(100)
+ui().button('dz.0').action(function() {libByName("dziennik").entries()[0].show()}).width(100),
+
+ui().button('pokaż').action(function() {
+// pokaż notatki
+var w= entry().field("notatki")
+var text =   w   ;
+const myd=dialog()
+myd
+   .text(text)
+.positiveButton("OK",()=>true)
+   .negativeButton(" przypisy ",() => {const myd=dialog()
+myd.title("przypisy")
+   .text(entry().field("przypisy osobno"))
+.positiveButton("OK",()=>true)
+.show()}
+)
+   .neutralButton("sumarum", ()=> 
+{
+myd.title("sumarum")
+   .text(text2)
+   .positiveButton(" OK ",()=>true)
+   .show();
+})
+.autoDismiss(false)
+   .show();
+}).width(100)
+
 ]).horizontal()
 ])
 )
