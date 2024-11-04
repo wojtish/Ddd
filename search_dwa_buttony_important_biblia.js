@@ -47,10 +47,6 @@ myd.title("sumarum")
 ui().button('lib').action(function() {lib().show()}).width(126)
 ]).horizontal(),
 ui().layout([
-ui().button('t').action(function() {
-var calp = ui().findByTag('name3').text
-ui().findByTag('name3').text = "t"
-}).width(100),
 
 ui().button('szdz').action(function() { 
 var nr = ui().findByTag('name2').text
@@ -92,7 +88,15 @@ i.send();
         return true; 
     }).width(167),
 
+ui().button('B').action(function() {
+var url = ("tasker://secondary?text=buttonyzdjec");
+var i = intent("android.intent.action.VIEW"); i.data(url);
+i.send();
+        return true; 
+}).width(100),
+
 ui().edit('').tag('name2').width(100), 
+
 ]).horizontal(),
 
 ui().layout([
@@ -710,11 +714,11 @@ var w= entry().field("notatki")
 var text =   w   ;
 const myd=dialog()
 myd
-   .text(text)
+  .text(text)
 .positiveButton("OK",()=>true)
    .negativeButton(" przypisy ",() => {const myd=dialog()
 myd.title("przypisy")
-.text(entry().field("przypisy osobno"))
+   .text(entry().field("przypisy osobno"))
 .positiveButton("OK",()=>true)
 .show()}
 )
@@ -775,4 +779,4 @@ i.send();
 ]).horizontal()
 ])
 )
-.show()                                       
+.show()
