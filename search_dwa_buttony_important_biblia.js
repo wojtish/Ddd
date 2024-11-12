@@ -714,7 +714,7 @@ var w= entry().field("notatki")
 var text =   w   ;
 const myd=dialog()
 myd
-  .text(text)
+   .text(text)
 .positiveButton("OK",()=>true)
    .negativeButton(" przypisy ",() => {const myd=dialog()
 myd.title("przypisy")
@@ -732,7 +732,14 @@ myd.title("sumarum")
 .autoDismiss(false)
    .show();
 }).width(100)
+]).horizontal(),
 
+ui().layout([
+ui().button('czyt. dnia').action(function() {
+var url = ("https://opoka.org.pl/liturgia");
+var i = intent("android.intent.action.VIEW"); i.data(url);
+i.send();
+}).width(300)
 ]).horizontal()
 ])
 )
