@@ -152,33 +152,81 @@ ui().layout([
 ui().edit('').tag('name3').width(50),
 
 ui().button('p1').action(function() { 
+
+
 var nr = ui().findByTag('name2').text
+
 if (nr == ""){
 nr = 0}
+
+
+if (nr == 1){
+entry().images("zdjęcie")[1].caption = ui().findByTag('name').text
+}
+else if (nr == 2){
+entry().images("zdjęcie")[2].caption = ui().findByTag('name').text
+}
+else if (nr == 3){
+entry().images("zdjęcie")[3].caption = ui().findByTag('name').text
+}
+
+
 var calp = ui().findByTag('name3').text
 if (calp == ""){
+
 entry().images("zdjęcie")[nr].caption = ui().findByTag('name').text
+
 message(entry().images("zdjęcie")[nr].caption)
 }
+
+
 else if (calp == "t" ){
 ui().findByTag('name').text = entry().images("zdjęcie")[nr].caption
+
 ui().findByTag('name3').text = ""
 }       
+
 else if (calp == "d" ){
 entry().images("zdjęcie drugie")[nr].caption = ui().findByTag('name').text
 ui().findByTag('name3').text = ""
 }       
 else if (calp == "dk" ){
 ui().findByTag('name').text = entry().images("zdjęcie drugie")[nr].caption
+
 ui().findByTag('name3').text = ""
 }       
-        return true; 
+ 
+
+
+       return true; 
 }).width(117),
+
+
+
 
 ui().button('p2').action(function() { 
 var nr = ui().findByTag('name2').text
 if (nr == ""){
 nr = 0}
+
+
+
+if (nr == 1){
+entry().images("zdjęcie drugie")[1].caption = ui().findByTag('name').text
+}
+else if (nr == 2){
+entry().images("zdjęcie drugie")[2].caption = ui().findByTag('name').text
+}
+else if (nr == 3){
+entry().images("zdjęcie drugie")[3].caption = ui().findByTag('name').text
+}
+
+
+
+
+
+
+
 var calp = ui().findByTag('name3').text
 if (calp == ""){
 entry().images("zdjęcie drugie")[nr].caption = ui().findByTag('name').text
@@ -252,7 +300,6 @@ var newCapts = shiftArray(indexs, capts);
 e.set(integers, 1);
 e.set(imagess, newPrimes);
 imgPrimes = e.images(imagess);
-
 for (k in imgPrimes) {
   imgPrimes[k].caption = newCapts[k];
 } 
