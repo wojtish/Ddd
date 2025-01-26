@@ -106,7 +106,8 @@ ui().button('tg').action(function() {
 var g = ui().findByTag('name').text
 
 entry().set("tagi klucze", (entry().field("tagi klucze").join(" ") + " " + g));
-        return true; 
+message(entry().field("tagi klucze"))
+   return true; 
 }).width(100)
 ]).horizontal(),
 
