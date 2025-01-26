@@ -103,7 +103,8 @@ ui().layout([
 ui().edit('').tag('name').width(700),
 
 ui().button('tg').action(function() {
-var g = ui().edit('').tag('name')
+var g = ui().findByTag('name').text
+
 entry().set("tagi klucze", (entry().field("tagi klucze").join(" ") + g));
         return true; 
 }).width(100)
