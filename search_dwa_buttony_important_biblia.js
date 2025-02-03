@@ -105,9 +105,9 @@ ui().edit('').tag('name').width(700),
 ui().button('tg').action(function() {
 var g = ui().findByTag('name').text
 
-entry().set("tagi klucze", (entry().field("tagi klucze").join(" ") + " " + g));
+entry().set("tagi klucze", (entry().field("tagi klucze").join(" ") +" "+ g));
 message(entry().field("tagi klucze"))
-   return true; 
+        return true; 
 }).width(100)
 ]).horizontal(),
 
@@ -170,12 +170,15 @@ nr = 0}
 
 if (nr == 1){
 entry().images("zdjęcie")[1].caption = ui().findByTag('name').text
+ui().findByTag('name').text=""
 }
 else if (nr == 2){
 entry().images("zdjęcie")[2].caption = ui().findByTag('name').text
+ui().findByTag('name').text=""
 }
 else if (nr == 3){
 entry().images("zdjęcie")[3].caption = ui().findByTag('name').text
+ui().findByTag('name').text=""
 }
 
 
