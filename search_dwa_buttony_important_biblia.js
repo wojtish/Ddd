@@ -226,18 +226,18 @@ nr = 0}
 
 
 
-if (nr == 1){
-entry().images("zdjęcie drugie")[1].caption = ui().findByTag('name').text
-ui().findByTag('name').text = ""
-}
-else if (nr == 2){
-entry().images("zdjęcie drugie")[2].caption = ui().findByTag('name').text
-ui().findByTag('name').text = ""
-}
-else if (nr == 3){
-entry().images("zdjęcie drugie")[3].caption = ui().findByTag('name').text
-ui().findByTag('name').text = ""
-}
+//if (nr == 1){
+//entry().images("zdjęcie drugie")[1].caption = ui().findByTag('name').text
+//ui().findByTag('name').text = ""
+//}
+//else if (nr == 2){
+//entry().images("zdjęcie drugie")[2].caption = ui().findByTag('name').text
+//ui().findByTag('name').text = ""
+//}
+//else if (nr == 3){
+//entry().images("zdjęcie drugie")[3].caption = ui().findByTag('name').text
+//ui().findByTag('name').text = ""
+//}
 
 
 
