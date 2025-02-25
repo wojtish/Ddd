@@ -168,19 +168,19 @@ if (nr == ""){
 nr = 0}
 
 
-if (nr == 1){
-entry().images("zdjęcie")[1].caption = ui().findByTag('name').text
+//if (nr == 1){
+//entry().images("zdjęcie")[1].caption = ui().findByTag('name').text
 
-ui().findByTag('name').text = ""
-}
-else if (nr == 2){
-entry().images("zdjęcie")[2].caption = ui().findByTag('name').text
-ui().findByTag('name').text=""
-}
-else if (nr == 3){
-entry().images("zdjęcie")[3].caption = ui().findByTag('name').text
-ui().findByTag('name').text=""
-}
+//ui().findByTag('name').text = ""
+//}
+//else if (nr == 2){
+//entry().images("zdjęcie")[2].caption = ui().findByTag('name').text
+//ui().findByTag('name').text=""
+//}
+//else if (nr == 3){
+//entry().images("zdjęcie")[3].caption = ui().findByTag('name').text
+//ui().findByTag('name').text=""
+//}
 
 
 var calp = ui().findByTag('name3').text
